@@ -165,13 +165,14 @@
             <a href="https://wa.me/+8801833732555" class="social-item"><i class="fab fa-whatsapp"></i></a>
             <a href="https://github.com/oxfaysal" class="social-item"><i class="fab fa-github"></i></a>
             <a href="https://web.facebook.com/0xfaysal" class="social-item"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://t.me/loomixdev" class="social-item"><i class="fab fa-telegram"></i></a>
             <a href="mailto:loomixdev@gmail.com" class="social-item"><i class="fas fa-envelope"></i></a>
         </div>
         <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 LOOMIXDEV • ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
-        // আপনার আগের script কোডগুলো এখানে থাকবে (render, openBlog, ইত্যাদি)
+        
         const skillData = [
             { name: "Flutter & Dart Expertise", icon: "fa-mobile-screen-button", desc: "Expert in building high-performance Android & iOS apps with Custom Animations and seamless User Experiences." },
             { name: "State & Data Management", icon: "fa-database", desc: "Advanced State Management and local data handling using sqflite, Hive, and optimized MySQL Database architectures." },
@@ -342,7 +343,7 @@
             `).join('');
 
             document.getElementById('packages-list').innerHTML = packageData.map(pkg => `
-                <div class="card"><div class="card-icon" style="color:var(--accent)"><i class="fas fa-box-open"></i></div><h3>${pkg.name}</h3><p>${pkg.desc}</p>
+                <div class="card"><div class="card-icon" style="color:var(--primary)"><i class="fas fa-box-open"></i></div><h3>${pkg.name}</h3><p>${pkg.desc}</p>
                 <div class="tag-row">${pkg.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
                 <a href="${pkg.link}" target="_blank" class="btn btn-outline">View on Pub.dev</a></div>
             `).join('');
