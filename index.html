@@ -180,13 +180,108 @@
 
 
         const projectData = [
-            { name: "Open Fashion UI", tags: ["Flutter", "UI Kit"], desc: "A clean, minimalist fashion store UI kit built with Flutter.", link: "https://github.com/oxfaysal" }
+            { 
+                name: "Open Fashion UI", 
+                tags: ["Flutter", "E-commerce", "Clean UI"], 
+                desc: "A high-end, minimalist fashion store UI kit. It features smooth transitions, luxury aesthetics, and a fully responsive layout for a premium shopping experience.", 
+                link: "https://github.com/oxfaysal/open_fashion" 
+            },
+            { 
+                name: "Fruit Hub", 
+                tags: ["Flutter", "Grocery", "State Management"], 
+                desc: "A vibrant and modern fruit delivery application. Focuses on intuitive product browsing, categorized listings, and a seamless cart management system.", 
+                link: "https://github.com/oxfaysal/fruit_hub" 
+            },
+            { 
+                name: "FoodGo", 
+                tags: ["Flutter", "Food Delivery", "Modern UX"], 
+                desc: "A sleek food ordering app concept. Designed with a focus on high-quality visuals, quick navigation, and a user-centric checkout flow.", 
+                link: "https://github.com/oxfaysal/foodgo" 
+            },
+            { 
+                name: "Ramadan Tracker", 
+                tags: ["Flutter", "Lifestyle", "Utility"], 
+                desc: "A dedicated app for the holy month, featuring Iftar & Sehri timings, daily progress tracking, and spiritual goals management with a clean interface.", 
+                link: "https://github.com/oxfaysal/Ramadan_Tracker" 
+            }
         ];
 
         const blogData = [
             { 
-                id: 1, date: "Mar 22, 2026", title: "Why Performance Matters in Mobile Apps", excerpt: "Exploring the techniques to keep your Flutter apps running at a smooth 60 FPS...", img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600",
-                content: `<p>User experience is everything. In Flutter, avoiding jank means understanding the build cycle. Use <b>const</b> everywhere possible and split your widgets to minimize rebuilds.</p>`
+                id: 1, 
+                date: "March 15, 2026", 
+                title: "Solving Bangla Typography in Flutter with 'bangla_fonts'", 
+                excerpt: "Why bundle heavy assets? Learn how to load premium Bangla fonts dynamically and keep your APK size minimal...", 
+                img: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600",
+                content: `
+                    <p>Bengali typography in mobile apps often comes with a trade-off: beautiful fonts vs. large APK sizes. My package <b>bangla_fonts</b> solves this by providing a dynamic loading mechanism.</p>
+                    <br>
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>Supports popular fonts like Kalpurush, Hind Siliguri, and more.</li>
+                        <li>Zero impact on initial download size.</li>
+                        <li>Simple API similar to Google Fonts.</li>
+                    </ul>
+                    <br>
+                    <p>By using this, developers can provide a native reading experience for Bengali users without worrying about performance overhead.</p>
+                `
+            },
+            { 
+                id: 2, 
+                date: "March 10, 2026", 
+                title: "Building Responsive Layouts with 'custom_masonry_grid'", 
+                excerpt: "Standard grids are boring. Discover how to create Pinterest-style masonry layouts with built-in shimmer effects...", 
+                img: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600",
+                content: `
+                    <p>Creating a responsive masonry layout from scratch can be tricky. <b>custom_masonry_grid</b> is designed to handle varying item heights automatically while maintaining a clean grid structure.</p>
+                    <br>
+                    <h3>What's Inside:</h3>
+                    <ul>
+                        <li>Built-in Shimmer: No need for extra loading packages.</li>
+                        <li>Header Support: Easily add banners at the top of your grid.</li>
+                        <li>Cross-Axis Control: Fine-tune your layout for tablets and phones.</li>
+                    </ul>
+                    <br>
+                    <p>Perfect for e-commerce and gallery apps where visual hierarchy is essential.</p>
+                `
+            },
+            { 
+                id: 3, 
+                date: "March 05, 2026", 
+                title: "Handling Bengali Dates Made Easy with 'date_snap'", 
+                excerpt: "Formatting '2 minutes ago' in Bangla shouldn't be hard. See how 'date_snap' simplifies localization...", 
+                img: "https://images.unsplash.com/photo-1506784915846-0248d6c5dfb4?w=600",
+                content: `
+                    <p>Localization is more than just translating words; it's about context. <b>date_snap</b> allows Flutter developers to format dates and relative time specifically for the Bengali locale.</p>
+                    <br>
+                    <h3>Usage Scenarios:</h3>
+                    <ul>
+                        <li>Social Media feeds showing "৫ মিনিট আগে".</li>
+                        <li>Full date formatting like "২২ মার্চ, ২০২৬".</li>
+                        <li>Lightweight and dependency-free logic.</li>
+                    </ul>
+                    <br>
+                    <p>It's a must-have utility for any Flutter app targeting the Bangladeshi market.</p>
+                `
+            },
+            { 
+                id: 4, 
+                date: "Feb 28, 2026", 
+                title: "Enhancing User Privacy with 'privacy_lens'", 
+                excerpt: "Don't let sensitive data leak through the App Switcher. Learn how to blur your app's content automatically...", 
+                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600",
+                content: `
+                    <p>When users switch between apps, the OS takes a snapshot of the current screen. For banking or private apps, this is a security risk. <b>privacy_lens</b> fixes this instantly.</p>
+                    <br>
+                    <h3>Security Benefits:</h3>
+                    <ul>
+                        <li>Auto-Blur: Blurs the screen when the app is minimized.</li>
+                        <li>Custom Overlays: Show your logo instead of sensitive data in the task manager.</li>
+                        <li>Zero Configuration: Works out of the box with minimal setup.</li>
+                    </ul>
+                    <br>
+                    <p>Security is a feature, not an afterthought. Protect your users' data today.</p>
+                `
             }
         ];
 
