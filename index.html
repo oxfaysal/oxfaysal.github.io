@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ফয়সাল ভাই, এখানে আপনার কাস্টম বাংলা ফন্টটি যুক্ত করা হলো */
         @font-face {
             font-family: 'LiAdornNoirrit';
             src: url('https://oxfaysal.github.io/bangla_fonts_cdn/fonts/liadornoirrit.ttf') format('truetype');
@@ -25,14 +24,13 @@
             --text-dim: #94a3b8;
             --border: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(0, 210, 255, 0.2);
-            --font-bangla: 'LiAdornNoirrit', sans-serif; /* বাংলা ফন্ট ভেরিয়েবল */
+            --font-bangla: 'LiAdornNoirrit', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); overflow-x: hidden; line-height: 1.5; }
 
-        /* বাংলা টেক্সট যেখানে যেখানে থাকবে সেখানে এই ফন্টটি কাজ করবে */
         h3, .blog-full-content, p {
             font-family: 'Plus Jakarta Sans', var(--font-bangla);
         }
@@ -69,7 +67,7 @@
         }
         .card:hover { transform: translateY(-10px); border-color: var(--glass-border); box-shadow: 0 25px 50px -15px rgba(0,0,0,0.6); }
 
-        .card-img { width: 100%; height: 180px; border-radius: 20px; margin-bottom: 25px; overflow: hidden; }
+        .card-img { width: 100%; height: 180px; border-radius: 20px; margin-bottom: 25px; overflow: hidden; background: #1e293b; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
         .card:hover .card-img img { transform: scale(1.08); }
 
@@ -89,9 +87,8 @@
         #blog-view { display: none; padding: 60px 8%; max-width: 850px; margin: auto; animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .back-btn { margin-bottom: 35px; color: var(--primary); cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-        .blog-hero-img { width: 100%; height: 420px; border-radius: 35px; object-fit: cover; margin-bottom: 40px; border: 1px solid var(--border); }
+        .blog-hero-img { width: 100%; height: 420px; border-radius: 35px; object-fit: cover; margin-bottom: 40px; border: 1px solid var(--border); background: #1e293b; }
         
-        /* ব্লগের ভেতরের বাংলা টেক্সট আরও সুন্দর দেখানোর জন্য */
         .blog-full-content { font-size: 1.2rem; color: #cbd5e1; line-height: 1.9; font-family: var(--font-bangla); }
         .blog-full-content h4 { color: var(--primary); margin: 20px 0 10px; font-size: 1.5rem; }
 
@@ -172,8 +169,7 @@
     </footer>
 
     <script>
-        
-        const skillData = [
+       const skillData = [
             { name: "Flutter & Dart Expertise", icon: "fa-mobile-screen-button", desc: "Expert in building high-performance Android & iOS apps with Custom Animations and seamless User Experiences." },
             { name: "State & Data Management", icon: "fa-database", desc: "Advanced State Management and local data handling using sqflite, Hive, and optimized MySQL Database architectures." },
             { name: "Backend & Firebase", icon: "fa-fire", desc: "Implementing Real-time Services: Firebase Auth, Firestore, and Push Notifications for engaging user ecosystems." },
@@ -338,7 +334,7 @@
             `).join('');
             
             document.getElementById('apps-list').innerHTML = appData.map(app => `
-                <div class="card"><div class="card-img"><img src="${app.img}"></div><h3>${app.name}</h3><p>${app.desc}</p>
+                <div class="card"><div class="card-img"><img src="${app.img}" onerror="this.style.display='none'"></div><h3>${app.name}</h3><p>${app.desc}</p>
                 <a href="${app.apk}" class="btn btn-primary">Download APK <i class="fas fa-download"></i></a></div>
             `).join('');
 
@@ -355,7 +351,7 @@
             `).join('');
 
             document.getElementById('blog-list').innerHTML = blogData.map(b => `
-                <div class="card"><div class="card-img"><img src="${b.img}"></div><span style="color:var(--primary); font-size:0.8rem;">${b.date}</span>
+                <div class="card"><div class="card-img"><img src="${b.img}" onerror="this.style.display='none'"></div><span style="color:var(--primary); font-size:0.8rem;">${b.date}</span>
                 <h3 style="margin:10px 0;">${b.title}</h3><p>${b.excerpt}</p>
                 <button onclick="openBlog(${b.id})" class="btn btn-outline">Read Article</button></div>
             `).join('');
@@ -364,20 +360,22 @@
         function openBlog(id) {
             const blog = blogData.find(b => b.id === id);
             if(blog) {
-                const shareUrl = encodeURIComponent(window.location.href);
-                const shareText = encodeURIComponent(blog.title);
+                // Dynamic Share Links
+                const currentUrl = window.location.href;
+                const shareUrl = encodeURIComponent(currentUrl);
+                const shareText = encodeURIComponent(blog.title + " - LoomixDev Insights");
                 
                 document.getElementById('blog-view').innerHTML = `
                     <div class="back-btn" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Back to Insights</div>
-                    <img class="blog-hero-img" src="${blog.img}">
+                    <img class="blog-hero-img" src="${blog.img}" onerror="this.style.display='none'">
                     <h1 style="font-family: var(--font-bangla);">${blog.title}</h1>
                     <p style="color: var(--primary); margin-bottom:30px;">${blog.date}</p>
                     <div class="blog-full-content">${blog.content}</div>
                     <div style="margin-top:50px; border-top:1px solid var(--border); padding-top:30px;">
-                        <p style="margin-bottom:15px; font-weight:bold;">Share this post:</p>
+                        <p style="margin-bottom:15px; font-weight:bold; font-family:var(--font-bangla);">আর্টিকেলটি শেয়ার করুন:</p>
                         <div style="display:flex; gap:15px;">
-                            <a href="https://facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" class="social-item"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank" class="social-item"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" class="social-item"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}" target="_blank" class="social-item"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 `;
