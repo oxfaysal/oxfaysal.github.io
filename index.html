@@ -3,79 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faisal | LoomixDev Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Faisal | Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #00d2ff;
-            --secondary-color: #3a7bd5;
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
+            --bg: #0b0f1a;
+            --surface: #161b2b;
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --text-main: #ffffff;
             --text-dim: #94a3b8;
-            --accent: #22c55e;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: rgba(11, 15, 26, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
         
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 10%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #334155; }
-        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary-color); }
-        .nav-links { list-style: none; display: flex; }
-        .nav-links li { margin-left: 20px; }
-        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* Hero */
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 10px; }
-        .hero .typing { color: var(--primary-color); border-right: 3px solid var(--primary-color); padding-right: 5px; animation: blink 0.7s infinite; }
-        @keyframes blink { 50% { border-color: transparent; } }
-        .tagline { font-style: italic; color: var(--text-dim); margin-top: 10px; font-size: 1.1rem; }
+        /* Hero Section */
+        .hero { height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; width: 300px; height: 300px; background: var(--primary); filter: blur(150px); opacity: 0.1; top: 20%; left: 20%; z-index: -1; }
 
-        /* Sections */
-        section { padding: 70px 10%; border-bottom: 1px solid #1e293b; }
-        .section-title { font-size: 2.2rem; margin-bottom: 50px; text-align: center; font-weight: 700; }
-        .section-title span { color: var(--primary-color); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin-bottom: 30px; }
+        
+        .cta-group { display: flex; gap: 15px; }
+        .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); }
+        .btn-outline { border: 1px solid var(--border); color: var(--text-main); }
+        .btn-outline:hover { background: var(--glass); }
 
-        /* Cards Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid #334155; transition: 0.4s; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
-        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary-color); }
-        .card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 15px; }
+        /* Common Section Layout */
+        section { padding: 100px 10%; }
+        .section-header { margin-bottom: 60px; text-align: left; }
+        .section-header h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .section-header .line { width: 50px; height: 4px; background: var(--primary); border-radius: 2px; }
 
-        /* Badges & Tags */
-        .badge-list { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
-        .tag { background: #0f172a; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; color: var(--primary-color); border: 1px solid #334155; }
-        .btn-link { font-size: 0.85rem; text-decoration: none; color: var(--text-light); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; }
-        .btn-link:hover { text-decoration: underline; }
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        /* Modern Card Design */
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 30px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--primary); background: rgba(22, 27, 43, 0.5); }
+        
+        .card-icon { width: 50px; height: 50px; background: var(--glass); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); font-size: 1.5rem; }
+        .card h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        .card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; min-height: 60px; }
 
-        /* Skills */
-        .skills-box { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
-        .skill-item { background: #1e293b; border: 1px solid #334155; padding: 10px 20px; border-radius: 8px; font-weight: 500; transition: 0.3s; }
-        .skill-item:hover { background: var(--primary-color); color: #000; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag { font-size: 0.7rem; padding: 4px 10px; background: var(--glass); border: 1px solid var(--border); border-radius: 4px; color: var(--primary); font-weight: 600; }
 
-        /* Contact */
-        .footer { text-align: center; padding: 60px 10%; background: #0a1120; }
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
-        .social-icons a { font-size: 1.8rem; color: var(--text-light); transition: 0.3s; }
-        .social-icons a:hover { color: var(--primary-color); transform: scale(1.2); }
+        .card-link { text-decoration: none; color: var(--text-main); font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .card-link:hover { gap: 12px; color: var(--primary); }
+
+        /* Footer */
+        footer { padding: 60px 10%; background: #080c14; border-top: 1px solid var(--border); text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .social-links a { width: 45px; height: 45px; border-radius: 50%; background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--text-main); text-decoration: none; transition: 0.3s; border: 1px solid var(--border); }
+        .social-links a:hover { background: var(--primary); color: #000; transform: translateY(-5px); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            nav { padding: 20px 5%; }
             .nav-links { display: none; }
-            section { padding: 50px 5%; }
+            section { padding: 60px 5%; }
+            .hero h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">LoomixDev</div>
+        <div class="logo">Loomix<span>Dev</span></div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#packages">Packages</a></li>
@@ -85,110 +100,134 @@
     </nav>
 
     <section class="hero">
-        <h1>Hi, I'm <span class="typing">Faisal</span></h1>
-        <p style="font-size: 1.3rem; font-weight: 600;">Full Stack Mobile App Developer</p>
-        <p class="tagline">"Weaving Code, Delivering Excellence"</p>
-        <p style="color: var(--text-dim); margin-top: 15px; max-width: 500px;">Crafting professional, minimalist, and high-performance mobile solutions with Flutter & Backend Technologies.</p>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">About <span>Me</span></h2>
-        <div style="max-width: 850px; margin: 0 auto; text-align: center; color: var(--text-dim); font-size: 1.1rem;">
-            <p>I am a dedicated Developer specializing in the <b>Flutter</b> ecosystem. My journey involves building complex architectures using <b>Dart, PHP (FastAPI), MySQL, and Firebase</b>. I am passionate about <b>Clean Code</b> and <b>Material Design</b>. As the founder of <b>LoomixDev</b>, I strive to build tools that empower developers and businesses alike.</p>
-        </div>
-        <div class="skills-box" style="margin-top: 40px;">
-            <div class="skill-item">Flutter</div>
-            <div class="skill-item">Dart</div>
-            <div class="skill-item">Android SDK</div>
-            <div class="skill-item">FastAPI (Python)</div>
-            <div class="skill-item">MySQL</div>
-            <div class="skill-item">Firebase</div>
-            <div class="skill-item">REST API</div>
-            <div class="skill-item">Git/GitHub</div>
+        <h1>Building <span>Digital</span><br>Experiences.</h1>
+        <p>I am Faisal, a Full Stack Mobile App Developer dedicated to weaving clean code and delivering excellence through Flutter.</p>
+        <div class="cta-group">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
     </section>
 
-    <section id="packages" style="background: #0a1120;">
-        <h2 class="section-title">Flutter <span>Packages</span></h2>
+    <section id="packages">
+        <div class="section-header">
+            <h2>Flutter <span>Packages</span></h2>
+            <div class="line"></div>
+        </div>
         <div class="grid">
             <div class="card">
-                <div class="tag">Active</div>
+                <div class="card-icon"><i class="fas fa-font"></i></div>
                 <h3>bangla_fonts</h3>
-                <p>A lightweight package to load 20+ popular Bangla fonts dynamically from CDN. Reduces app size significantly.</p>
-                <div class="badge-list">
-                    <img src="https://img.shields.io/pub/v/bangla_fonts?label=pub.dev&color=blue" alt="v1.1.0">
-                    <img src="https://img.shields.io/github/stars/oxfaysal/bangla_fonts?style=flat&color=silver" alt="Stars">
+                <p>Load 20+ popular Bangla fonts dynamically from CDN. Save your app size by excluding heavy TTF files.</p>
+                <div class="tag-container">
+                    <span class="tag">CDN</span> <span class="tag">Performance</span> <span class="tag">Typography</span>
                 </div>
-                <a href="https://pub.dev/packages/bangla_fonts" target="_blank" class="btn-link">View on Pub.dev <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://pub.dev/packages/bangla_fonts" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="card">
-                <div class="tag">v1.0.1</div>
-                <h3>date_snap</h3>
-                <p>Easy-to-use Flutter package for localized date formatting and real-time relative time calculations.</p>
-                <div class="badge-list">
-                    <img src="https://img.shields.io/pub/v/date_snap?label=pub.dev&color=blue" alt="v1.0.1">
-                </div>
-                <a href="https://pub.dev/packages/date_snap" target="_blank" class="btn-link">View on Pub.dev <i class="fas fa-external-link-alt"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="tag">In-Dev</div>
+                <div class="card-icon"><i class="fas fa-th-large"></i></div>
                 <h3>custom_masonry_grid</h3>
-                <p>A responsive masonry layout management tool with built-in shimmer loading and header support.</p>
-                <div class="badge-list">
-                    <span class="tag" style="background: #334155;">Upcoming Release</span>
+                <p>A highly customizable masonry grid for Flutter with built-in shimmer loading and responsive support.</p>
+                <div class="tag-container">
+                    <span class="tag">Layout</span> <span class="tag">UI/UX</span> <span class="tag">Responsive</span>
                 </div>
-                <a href="#" class="btn-link">GitHub Repository <i class="fab fa-github"></i></a>
+                <a href="https://pub.dev/packages/custom_masonry_grid" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
             </div>
-        </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3>date_snap</h3>
+                <p>Lightweight utility for localized date formatting and relative time (ago) calculations in Flutter.</p>
+                <div class="tag-container">
+                    <span class="tag">Utility</span> <span class="tag">Localization</span> <span class="tag">Date</span>
+                </div>
+                <a href="https://pub.dev/packages/date_snap" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>privacy_lens</h3>
+                <p>Easily manage and display privacy-focused permissions and data usage transparency to your users.</p>
+                <div class="tag-container">
+                    <span class="tag">Privacy</span> <span class="tag">Security</span> <span class="tag">Compliance</span>
+                </div>
+                <a href="https://pub.dev/packages/privacy_lens" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            </div>
     </section>
 
-    <section id="projects">
-        <h2 class="section-title">Featured <span>Projects</span></h2>
+    <section id="projects" style="background-color: #0d121f;">
+        <div class="section-header">
+            <h2>Open Source <span>Projects</span></h2>
+            <div class="line"></div>
+        </div>
         <div class="grid">
             <div class="card">
-                <h3>SebaXpress</h3>
-                <p><b>Super-App Solution:</b> Integrated ambulance directories, blood donation tracking, and local information services.</p>
-                <div class="badge-list">
-                    <span class="tag">Flutter</span> <span class="tag">Firebase</span> <span class="tag">Maps API</span>
+                <div class="card-icon"><i class="fas fa-tshirt"></i></div>
+                <h3>Open Fashion</h3>
+                <p>A full-featured E-commerce app UI/UX kit for fashion stores built with Flutter's best practices.</p>
+                <div class="tag-container">
+                    <span class="tag">E-Commerce</span> <span class="tag">Flutter UI</span> <span class="tag">Clean Code</span>
                 </div>
-                <a href="#" class="btn-link">Live Preview <i class="fas fa-play"></i></a>
+                <a href="https://github.com/oxfaysal/open_fashion" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
             </div>
 
             <div class="card">
-                <h3>Sohayak</h3>
-                <p><b>Sales CRM:</b> Specialized application for marketing managers to track leads, sales, and team performance.</p>
-                <div class="badge-list">
-                    <span class="tag">FastAPI</span> <span class="tag">MySQL</span> <span class="tag">Flutter</span>
+                <h3>Fruit Hub</h3>
+                <p>Beautiful Fruit delivery app UI. Features clean animations and a vibrant minimalist design.</p>
+                <div class="tag-container">
+                    <span class="tag">Mobile</span> <span class="tag">UI Kit</span> <span class="tag">Dart</span>
                 </div>
-                <a href="#" class="btn-link">Case Study <i class="fas fa-book"></i></a>
+                <a href="https://github.com/oxfaysal/fruit_hub" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
             </div>
 
             <div class="card">
-                <h3>DutyTracker</h3>
-                <p><b>Management Tool:</b> Designed for employees to calculate overtime duties with localized language support.</p>
-                <div class="badge-list">
-                    <span class="tag">SQLite</span> <span class="tag">Provider</span> <span class="tag">Minimal UI</span>
+                <h3>FoodGo</h3>
+                <p>Restaurant exploration and food delivery application with modern navigation and state management.</p>
+                <div class="tag-container">
+                    <span class="tag">Food Tech</span> <span class="tag">App Design</span>
                 </div>
-                <a href="#" class="btn-link">View App <i class="fas fa-mobile-alt"></i></a>
+                <a href="https://github.com/oxfaysal/foodgo" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
             </div>
-        </div>
+
+            <div class="card">
+                <h3>Ramadan Tracker</h3>
+                <p>An essential companion app for Ramadan. Track prayers, fasting, and daily goals with ease.</p>
+                <div class="tag-container">
+                    <span class="tag">Productivity</span> <span class="tag">Islamic App</span>
+                </div>
+                <a href="https://github.com/oxfaysal/Ramadan_Tracker" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
+            </div>
+
+            <div class="card">
+                <h3>DutyTrack</h3>
+                <p>Calculate and manage overtime work hours and duties for professional efficiency.</p>
+                <div class="tag-container">
+                    <span class="tag">Management</span> <span class="tag">Tools</span>
+                </div>
+                <a href="https://github.com/oxfaysal/DutyTrack" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
+            </div>
+            
+            </div>
     </section>
 
-    <section id="contact" class="footer">
-        <h2 class="section-title">Let's <span>Connect</span></h2>
-        <p style="color: var(--text-dim); margin-bottom: 30px;">Have a project in mind or want to collaborate? Feel free to reach out!</p>
+    <footer id="contact">
+        <h2 style="margin-bottom: 10px;">Let's <span>Collaborate</span></h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">Open for opportunities and interesting Flutter projects.</p>
         
-        <div class="social-icons">
-            <a href="mailto:loomixdev@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/oxfaysal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://web.facebook.com/0xfaysal" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/+8801833732555" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <div class="social-links">
+            <a href="https://github.com/oxfaysal" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:loomixdev@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://web.facebook.com/0xfaysal" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/+8801833732555" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
-
-        <p style="font-size: 0.85rem; color: #475569;">&copy; 2026 <b>LoomixDev</b>. Weaving Code, Delivering Excellence.</p>
-    </section>
+        
+        <p style="font-size: 0.8rem; color: var(--text-dim);">
+            &copy; 2026 LoomixDev. All rights reserved. <br>
+            <i>"Weaving Code, Delivering Excellence"</i>
+        </p>
+    </footer>
 
 </body>
 </html>
