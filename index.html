@@ -210,77 +210,109 @@
             { 
                 id: 1, 
                 date: "March 15, 2026", 
-                title: "Solving Bangla Typography in Flutter with 'bangla_fonts'", 
-                excerpt: "Why bundle heavy assets? Learn how to load premium Bangla fonts dynamically and keep your APK size minimal...", 
-                img: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600",
+                title: "ফ্লাটার অ্যাপে বাংলা ফন্ট লোড করার সবচেয়ে সহজ সমাধান! 🚀", 
+                excerpt: "আপনার ফ্লাটার অ্যাপের সাইজ কি বাংলা ফন্ট অ্যাড করার কারণে বেড়ে যাচ্ছে? ব্যবহার করুন bangla_fonts...", 
+                img: "assets/img/banglafont_demo.png",
                 content: `
-                    <p>Bengali typography in mobile apps often comes with a trade-off: beautiful fonts vs. large APK sizes. My package <b>bangla_fonts</b> solves this by providing a dynamic loading mechanism.</p>
+                    <p>আমাদের দেশে ফ্লাটার অ্যাপ ডেভেলপমেন্টের সময় সবচেয়ে বড় চ্যালেঞ্জগুলোর একটি হলো সুন্দর টাইপোগ্রাফি এবং অ্যাপের সাইজ অপ্টিমাইজেশন। সাধারণত একটি হাই-কোয়ালিটি বাংলা ফন্ট (যেমন: কালপুরুষ বা হিন্দ শিলিগুড়ি) অ্যাপে যুক্ত করলে অ্যাপের সাইজ ৩-৫ এমবি বেড়ে যায়।</p>
                     <br>
-                    <h3>Key Features:</h3>
+                    <h4>🤔 সমস্যাটি কোথায়?</h4>
+                    <p>যদি আপনার অ্যাপে ৫টি আলাদা বাংলা ফন্ট ব্যবহার করতে চান, তবে শুধুমাত্র ফন্টের কারণেই অ্যাপের সাইজ ১৫-২০ এমবি বেড়ে যেতে পারে, যা ইউজার এক্সপেরিয়েন্সের জন্য ক্ষতিকর।</p>
+                    <br>
+                    <h4>💡 সমাধান: bangla_fonts প্যাকেজ</h4>
+                    <p><b>bangla_fonts</b> প্যাকেজটি এই সমস্যার একটি স্মার্ট সমাধান দেয়। এটি ফন্টগুলোকে অ্যাপের ভেতর লোকালি স্টোর না করে ক্লাউড (CDN) থেকে ডাইনামিকলি লোড করে। এর ফলে অ্যাপের ইনিশিয়াল সাইজ একদম বাড়ে না।</p>
+                    <br>
+                    <h4>🌟 টেকনিক্যাল ফিচারসমূহ:</h4>
                     <ul>
-                        <li>Supports popular fonts like Kalpurush, Hind Siliguri, and more.</li>
-                        <li>Zero impact on initial download size.</li>
-                        <li>Simple API similar to Google Fonts.</li>
+                        <li>✅ <b>On-Demand Loading:</b> যখনই কোনো টেক্সট স্টাইল কল করা হয়, তখনই সেটি অটোমেটিক ডাউনলোড এবং ক্যাশ (Cache) হয়।</li>
+                        <li>✅ <b>Variety of Fonts:</b> জনপ্রিয় সব বাংলা ফন্ট এক জায়গাতেই পাওয়া যায়।</li>
+                        <li>✅ <b>Offline Support:</b> একবার লোড হয়ে গেলে পরবর্তীতে ইন্টারনেট ছাড়াও ফন্টটি কাজ করে।</li>
                     </ul>
                     <br>
-                    <p>By using this, developers can provide a native reading experience for Bengali users without worrying about performance overhead.</p>
+                    <div style="margin: 20px 0;">
+                        <a href="https://pub.dev/packages/bangla_fonts" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">Get Started with bangla_fonts</a>
+                    </div>
+                    <p>👉 কমান্ড লাইনে লিখুন: <code>flutter pub add bangla_fonts</code></p>
                 `
             },
             { 
                 id: 2, 
                 date: "March 10, 2026", 
-                title: "Building Responsive Layouts with 'custom_masonry_grid'", 
-                excerpt: "Standard grids are boring. Discover how to create Pinterest-style masonry layouts with built-in shimmer effects...", 
+                title: "Pinterest-এর মতো মডার্ন ম্যাশনারি গ্রিড এখন আপনার অ্যাপে! ✨", 
+                excerpt: "স্ট্যান্ডার্ড গ্রিড লেআউট নিয়ে বোরড হয়ে গেছেন? আপনার অ্যাপে কি রেসপনসিভ ম্যাশনারি গ্রিড প্রয়োজন?...", 
                 img: "assets/img/masonry_demo.png",
                 content: `
-                    <p>Creating a responsive masonry layout from scratch can be tricky. <b>custom_masonry_grid</b> is designed to handle varying item heights automatically while maintaining a clean grid structure.</p>
+                    <p>একটি মডার্ন UI ডিজাইনে কন্টেন্টের ভিন্ন ভিন্ন হাইট (Height) হ্যান্ডেল করা বেশ কঠিন কাজ। ফ্লাটারের ডিফল্ট GridView দিয়ে Pinterest-এর মতো লেআউট তৈরি করা প্রায় অসম্ভব, কারণ সেখানে প্রতিটি কলামের হাইট সমান হতে হয়।</p>
                     <br>
-                    <h3>What's Inside:</h3>
+                    <h4>🚀 সমাধান: custom_masonry_grid</h4>
+                    <p><b>custom_masonry_grid</b> প্যাকেজটি ডেভেলপারদের কাজকে সহজ করতে তৈরি করা হয়েছে। এটি কন্টেন্টের সাইজ অনুযায়ী অটোমেটিকলি গ্রিড অ্যাডজাস্ট করে নেয়, যা দেখতে অত্যন্ত প্রিমিয়াম লাগে।</p>
+                    <br>
+                    <h4>🌟 কেন এটি ইউনিক?</h4>
                     <ul>
-                        <li>Built-in Shimmer: No need for extra loading packages.</li>
-                        <li>Header Support: Easily add banners at the top of your grid.</li>
-                        <li>Cross-Axis Control: Fine-tune your layout for tablets and phones.</li>
+                        <li>✅ <b>Built-in Shimmer Loading:</b> ডেটা লোড হওয়ার সময় ইউজারকে চমৎকার একটি শিমার ইফেক্ট দেখায়, যা আলাদাভাবে কোড করতে হয় না।</li>
+                        <li>✅ <b>Responsive Layout:</b> মোবাইল, ট্যাব বা বড় স্ক্রিনে এটি অটোমেটিক কলাম সংখ্যা অ্যাডজাস্ট করতে পারে।</li>
+                        <li>✅ <b>Header & Footer Integration:</b> গ্রিডের মাঝখানে বা শুরুতে খুব সহজে কাস্টম ব্যানার বা উইজেট বসানো যায়।</li>
                     </ul>
                     <br>
-                    <p>Perfect for e-commerce and gallery apps where visual hierarchy is essential.</p>
+                    <h4>🛠️ ব্যবহারের ক্ষেত্র:</h4>
+                    <p>ই-কমার্স প্রোডাক্ট ডিসপ্লে, ফটোগ্রাফি পোর্টফোলিও বা নিউজ ফিড অ্যাপের জন্য এটি সেরা চয়েস।</p>
+                    <br>
+                    <div style="margin: 20px 0;">
+                        <a href="https://pub.dev/packages/custom_masonry_grid" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">Explore custom_masonry_grid</a>
+                    </div>
                 `
             },
             { 
                 id: 3, 
                 date: "March 05, 2026", 
-                title: "Handling Bengali Dates Made Easy with 'date_snap'", 
-                excerpt: "Formatting '2 minutes ago' in Bangla shouldn't be hard. See how 'date_snap' simplifies localization...", 
+                title: "বাংলা ডেট ও টাইম ফরম্যাটিং নিয়ে আর কোনো টেনশন নেই! 🇧🇩", 
+                excerpt: "ফ্লাটার অ্যাপে '৫ মিনিট আগে' বা '২২ মার্চ'—এই ধরণের বাংলা ডেট ফরম্যাট করুন একদম সহজে...", 
                 img: "assets/img/date_snap_demo.png",
                 content: `
-                    <p>Localization is more than just translating words; it's about context. <b>date_snap</b> allows Flutter developers to format dates and relative time specifically for the Bengali locale.</p>
+                    <p>লোকালাইজেশন একটি অ্যাপের গ্রহণযোগ্যতা বহুগুণ বাড়িয়ে দেয়। কিন্তু ফ্লাটারে ইংরেজি তারিখ এবং সময়কে বাংলায় কনভার্ট করা (যেমন: '2 hours ago' থেকে '২ ঘণ্টা আগে') বেশ জটিল লজিকের কাজ।</p>
                     <br>
-                    <h3>Usage Scenarios:</h3>
+                    <h4>🕒 Introducing date_snap</h4>
+                    <p><b>date_snap</b> প্যাকেজটি তৈরি করা হয়েছে এই জটিল লজিকগুলোকে একদম সহজ করার জন্য। এটি রিয়েল-টাইম ডেটা রিড করে সেটিকে পারফেক্ট বাংলা ফরম্যাটে রূপান্তর করে।</p>
+                    <br>
+                    <h4>🌟 মূল ফিচারসমূহ:</h4>
                     <ul>
-                        <li>Social Media feeds showing "৫ মিনিট আগে".</li>
-                        <li>Full date formatting like "২২ মার্চ, ২০২৬".</li>
-                        <li>Lightweight and dependency-free logic.</li>
+                        <li>✅ <b>Relative Time Support:</b> ফেসবুক বা সোশ্যাল মিডিয়ার মতো "৫ মিনিট আগে" বা "৩ দিন আগে" ফরম্যাট সাপোর্ট করে।</li>
+                        <li>✅ <b>Flexible Formatting:</b> আপনি চাইলে শুধু তারিখ, শুধু মাস বা পুরো ক্যালেন্ডার ফরম্যাট বাংলায় দেখাতে পারেন।</li>
+                        <li>✅ <b>High Performance:</b> কোনো ভারি ডিপেন্ডেন্সি ছাড়াই এটি দ্রুত কাজ করে।</li>
                     </ul>
                     <br>
-                    <p>It's a must-have utility for any Flutter app targeting the Bangladeshi market.</p>
+                    <h4>💻 এক্সাম্পল কোড:</h4>
+                    <p><code>DateSnap.format(dateTime, locale: 'bn')</code> — মাত্র এই এক লাইনেই আপনার কাজ শেষ!</p>
+                    <br>
+                    <div style="margin: 20px 0;">
+                        <a href="https://pub.dev/packages/date_snap" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">Try date_snap Now</a>
+                    </div>
                 `
             },
             { 
                 id: 4, 
                 date: "Feb 28, 2026", 
-                title: "Enhancing User Privacy with 'privacy_lens'", 
-                excerpt: "Don't let sensitive data leak through the App Switcher. Learn how to blur your app's content automatically...", 
+                title: "আপনার অ্যাপের ইউজার প্রাইভেসিতে দিন ডাবল লেয়ার সিকিউরিটি! 🛡️", 
+                excerpt: "রিসেন্ট টাস্ক লিস্টে কি আপনার অ্যাপের সেনসিটিভ ডাটা দেখা যাচ্ছে? ব্যবহার করুন privacy_lens...", 
                 img: "assets/img/privacylens_demo.png",
                 content: `
-                    <p>When users switch between apps, the OS takes a snapshot of the current screen. For banking or private apps, this is a security risk. <b>privacy_lens</b> fixes this instantly.</p>
+                    <p>সিকিউরিটি এবং প্রাইভেসি বর্তমান সময়ের সবচেয়ে বড় কনসার্ন। অনেক সময় ইউজার যখন অ্যাপ সুইচ করে, তখন ফোনের 'Recent Apps' বা 'App Switcher'-এ অ্যাপের ভেতরের সেনসিটিভ তথ্য (যেমন: ব্যালেন্স, পার্সোনাল চ্যাট বা পাসওয়ার্ড) দেখা যায়।</p>
                     <br>
-                    <h3>Security Benefits:</h3>
+                    <h4>🛡️ Privacy Shield: privacy_lens</h4>
+                    <p>এই প্যাকেজটি আপনার অ্যাপকে ওএস (Android/iOS) লেভেলে সুরক্ষা দেয়। যখনই ইউজার অ্যাপ থেকে বের হয়ে অন্য অ্যাপে যাবে, তখনই আপনার অ্যাপের স্ক্রিনটি অটোমেটিক ব্লার হয়ে যাবে।</p>
+                    <br>
+                    <h4>🌟 সিকিউরিটি বেনিফিটস:</h4>
                     <ul>
-                        <li>Auto-Blur: Blurs the screen when the app is minimized.</li>
-                        <li>Custom Overlays: Show your logo instead of sensitive data in the task manager.</li>
-                        <li>Zero Configuration: Works out of the box with minimal setup.</li>
+                        <li>✅ <b>Automatic Blur:</b> অ্যাপ ইন-অ্যাক্টিভ হওয়ার সাথে সাথেই কাজ শুরু করে।</li>
+                        <li>✅ <b>Custom Overlay:</b> আপনি চাইলে ব্লারের পরিবর্তে কাস্টম কালার বা আপনার ব্র্যান্ডের লোগো দেখাতে পারেন।</li>
+                        <li>✅ <b>Banking Grade Security:</b> ফিনটেক বা সিকিউর মেসেজিং অ্যাপের জন্য এটি একটি অপরিহার্য প্যাকেজ।</li>
                     </ul>
                     <br>
-                    <p>Security is a feature, not an afterthought. Protect your users' data today.</p>
+                    <p>🛡️ আপনার ইউজারের বিশ্বাস রক্ষা করুন <b>privacy_lens</b> ইন্টিগ্রেট করে।</p>
+                    <br>
+                    <div style="margin: 20px 0;">
+                        <a href="https://pub.dev/packages/privacy_lens" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">Secure Your App</a>
+                    </div>
                 `
             }
         ];
