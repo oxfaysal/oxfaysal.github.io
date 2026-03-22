@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoomixDev</title>
+    <title>Faisal | LoomixDev Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -14,51 +14,61 @@
             --card-bg: #1e293b;
             --text-light: #f8fafc;
             --text-dim: #94a3b8;
+            --accent: #22c55e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
         
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: rgba(15, 23, 42, 0.9); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 10%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #334155; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary-color); }
         .nav-links { list-style: none; display: flex; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; transition: 0.3s; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary-color); }
 
-        /* Hero Section */
-        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), var(--bg-dark)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1350&q=80'); background-size: cover; padding: 0 10%; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; }
-        .tagline { color: var(--primary-color) !important; font-weight: 600; margin-top: 15px; }
+        /* Hero */
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 10px; }
+        .hero .typing { color: var(--primary-color); border-right: 3px solid var(--primary-color); padding-right: 5px; animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+        .tagline { font-style: italic; color: var(--text-dim); margin-top: 10px; font-size: 1.1rem; }
 
-        /* Section Styling */
-        section { padding: 80px 10%; }
-        .section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        /* Sections */
+        section { padding: 70px 10%; border-bottom: 1px solid #1e293b; }
+        .section-title { font-size: 2.2rem; margin-bottom: 50px; text-align: center; font-weight: 700; }
+        .section-title span { color: var(--primary-color); }
 
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; transition: 0.3s; border: 1px solid #334155; }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        /* Cards Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid #334155; transition: 0.4s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary-color); }
+        .card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 15px; }
 
-        /* Featured Packages */
-        .package-badge { display: inline-block; margin-top: 10px; }
+        /* Badges & Tags */
+        .badge-list { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .tag { background: #0f172a; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; color: var(--primary-color); border: 1px solid #334155; }
+        .btn-link { font-size: 0.85rem; text-decoration: none; color: var(--text-light); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; }
+        .btn-link:hover { text-decoration: underline; }
 
         /* Skills */
-        .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .skill-tag { background: #334155; padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; border: 1px solid var(--secondary-color); }
+        .skills-box { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
+        .skill-item { background: #1e293b; border: 1px solid #334155; padding: 10px 20px; border-radius: 8px; font-weight: 500; transition: 0.3s; }
+        .skill-item:hover { background: var(--primary-color); color: #000; }
 
-        /* Footer & Contact */
-        .contact-links { text-align: center; margin-top: 20px; }
-        .contact-links a { font-size: 2rem; margin: 0 15px; color: var(--text-light); transition: 0.3s; }
-        .contact-links a:hover { color: var(--primary-color); }
-        .cta-button { display: inline-block; padding: 12px 30px; background: var(--primary-color); color: #fff; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
+        /* Contact */
+        .footer { text-align: center; padding: 60px 10%; background: #0a1120; }
+        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-icons a { font-size: 1.8rem; color: var(--text-light); transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary-color); transform: scale(1.2); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
+            section { padding: 50px 5%; }
         }
     </style>
 </head>
@@ -75,90 +85,109 @@
     </nav>
 
     <section class="hero">
-        <h1>Hi, I'm <span style="color: var(--primary-color);">Faisal</span></h1>
-        <p>Full Stack Mobile App Developer specializing in high-performance applications with Flutter & Android.</p>
+        <h1>Hi, I'm <span class="typing">Faisal</span></h1>
+        <p style="font-size: 1.3rem; font-weight: 600;">Full Stack Mobile App Developer</p>
         <p class="tagline">"Weaving Code, Delivering Excellence"</p>
-        <a href="#contact" class="cta-button">Work With Me</a>
+        <p style="color: var(--text-dim); margin-top: 15px; max-width: 500px;">Crafting professional, minimalist, and high-performance mobile solutions with Flutter & Backend Technologies.</p>
     </section>
 
     <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-dim);">
-            <p>I am a passionate developer with expertise in Flutter, Dart, PHP, and MySQL. With a strong focus on clean architecture and minimalist UI/UX, I build scalable mobile solutions. I'm also the founder of <b>LoomixDev</b>, where I create tools and applications that simplify business processes.</p>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div style="max-width: 850px; margin: 0 auto; text-align: center; color: var(--text-dim); font-size: 1.1rem;">
+            <p>I am a dedicated Developer specializing in the <b>Flutter</b> ecosystem. My journey involves building complex architectures using <b>Dart, PHP (FastAPI), MySQL, and Firebase</b>. I am passionate about <b>Clean Code</b> and <b>Material Design</b>. As the founder of <b>LoomixDev</b>, I strive to build tools that empower developers and businesses alike.</p>
+        </div>
+        <div class="skills-box" style="margin-top: 40px;">
+            <div class="skill-item">Flutter</div>
+            <div class="skill-item">Dart</div>
+            <div class="skill-item">Android SDK</div>
+            <div class="skill-item">FastAPI (Python)</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">Firebase</div>
+            <div class="skill-item">REST API</div>
+            <div class="skill-item">Git/GitHub</div>
         </div>
     </section>
 
     <section id="packages" style="background: #0a1120;">
-        <h2 class="section-title">Featured Packages</h2>
+        <h2 class="section-title">Flutter <span>Packages</span></h2>
         <div class="grid">
             <div class="card">
+                <div class="tag">Active</div>
                 <h3>bangla_fonts</h3>
-                <p>Use 20+ popular Bangla fonts dynamically via CDN without increasing app size.</p>
-                <a href="https://pub.dev/packages/bangla_fonts" class="package-badge"><img src="https://img.shields.io/pub/v/bangla_fonts?color=blue" alt="Pub"></a>
+                <p>A lightweight package to load 20+ popular Bangla fonts dynamically from CDN. Reduces app size significantly.</p>
+                <div class="badge-list">
+                    <img src="https://img.shields.io/pub/v/bangla_fonts?label=pub.dev&color=blue" alt="v1.1.0">
+                    <img src="https://img.shields.io/github/stars/oxfaysal/bangla_fonts?style=flat&color=silver" alt="Stars">
+                </div>
+                <a href="https://pub.dev/packages/bangla_fonts" target="_blank" class="btn-link">View on Pub.dev <i class="fas fa-external-link-alt"></i></a>
             </div>
+
             <div class="card">
+                <div class="tag">v1.0.1</div>
                 <h3>date_snap</h3>
-                <p>Localized date formatting and relative time calculations for Flutter apps.</p>
-                <a href="https://pub.dev/packages/date_snap" class="package-badge"><img src="https://img.shields.io/pub/v/date_snap?color=blue" alt="Pub"></a>
+                <p>Easy-to-use Flutter package for localized date formatting and real-time relative time calculations.</p>
+                <div class="badge-list">
+                    <img src="https://img.shields.io/pub/v/date_snap?label=pub.dev&color=blue" alt="v1.0.1">
+                </div>
+                <a href="https://pub.dev/packages/date_snap" target="_blank" class="btn-link">View on Pub.dev <i class="fas fa-external-link-alt"></i></a>
             </div>
+
             <div class="card">
+                <div class="tag">In-Dev</div>
                 <h3>custom_masonry_grid</h3>
-                <p>Responsive masonry layout management with shimmer loading support.</p>
-                <a href="#" class="package-badge"><img src="https://img.shields.io/badge/Pub-Coming%20Soon-orange" alt="Pub"></a>
+                <p>A responsive masonry layout management tool with built-in shimmer loading and header support.</p>
+                <div class="badge-list">
+                    <span class="tag" style="background: #334155;">Upcoming Release</span>
+                </div>
+                <a href="#" class="btn-link">GitHub Repository <i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Big Projects</h2>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
         <div class="grid">
             <div class="card">
                 <h3>SebaXpress</h3>
-                <p>A multi-service super-app featuring ambulance directories and blood donation tracking.</p>
-                <div style="margin-top: 15px;">
-                    <a href="#" style="color: var(--primary-color);">View Details <i class="fas fa-external-link-alt"></i></a>
+                <p><b>Super-App Solution:</b> Integrated ambulance directories, blood donation tracking, and local information services.</p>
+                <div class="badge-list">
+                    <span class="tag">Flutter</span> <span class="tag">Firebase</span> <span class="tag">Maps API</span>
                 </div>
+                <a href="#" class="btn-link">Live Preview <i class="fas fa-play"></i></a>
             </div>
+
             <div class="card">
                 <h3>Sohayak</h3>
-                <p>A specialized CRM tool for sales and marketing managers to track leads and performance.</p>
-                <div style="margin-top: 15px;">
-                    <a href="#" style="color: var(--primary-color);">Source Code <i class="fab fa-github"></i></a>
+                <p><b>Sales CRM:</b> Specialized application for marketing managers to track leads, sales, and team performance.</p>
+                <div class="badge-list">
+                    <span class="tag">FastAPI</span> <span class="tag">MySQL</span> <span class="tag">Flutter</span>
                 </div>
+                <a href="#" class="btn-link">Case Study <i class="fas fa-book"></i></a>
             </div>
+
             <div class="card">
                 <h3>DutyTracker</h3>
-                <p>An efficient tool for employees to calculate and manage overtime duties seamlessly.</p>
-                <div style="margin-top: 15px;">
-                    <a href="#" style="color: var(--primary-color);">Live Demo <i class="fas fa-play-circle"></i></a>
+                <p><b>Management Tool:</b> Designed for employees to calculate overtime duties with localized language support.</p>
+                <div class="badge-list">
+                    <span class="tag">SQLite</span> <span class="tag">Provider</span> <span class="tag">Minimal UI</span>
                 </div>
+                <a href="#" class="btn-link">View App <i class="fas fa-mobile-alt"></i></a>
             </div>
         </div>
     </section>
 
-    <section id="skills" style="background: #0a1120;">
-        <h2 class="section-title">Skills & Tools</h2>
-        <div class="skills-container">
-            <span class="skill-tag">Flutter</span>
-            <span class="skill-tag">Dart</span>
-            <span class="skill-tag">Android SDK</span>
-            <span class="skill-tag">PHP (FastAPI)</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">UI/UX Design</span>
+    <section id="contact" class="footer">
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Have a project in mind or want to collaborate? Feel free to reach out!</p>
+        
+        <div class="social-icons">
+            <a href="mailto:loomixdev@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/oxfaysal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/0xfaysal" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/+8801833732555" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </section>
 
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-links">
-            <a href="mailto:loomixdev@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/oxfaysal" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://web.facebook.com/0xfaysal" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/YOUR_NUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p style="text-align: center; margin-top: 40px; color: var(--text-dim);">&copy; 2026 LoomixDev | Weaving Code, Delivering Excellence</p>
+        <p style="font-size: 0.85rem; color: #475569;">&copy; 2026 <b>LoomixDev</b>. Weaving Code, Delivering Excellence.</p>
     </section>
 
 </body>
