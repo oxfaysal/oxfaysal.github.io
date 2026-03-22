@@ -218,8 +218,22 @@
 
         const blogData = [
             { 
-                id: 1, date: "Mar 22, 2026", title: "Why Performance Matters in Mobile Apps", excerpt: "Exploring techniques to keep your Flutter apps running at a smooth 60 FPS...", img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=600",
-                content: `<p>User experience is the core of mobile development. A delay of even 100ms can be noticed by users.</p><h3>Key Tips</h3><ul><li>Use RepaintBoundary for complex UI</li><li>Minimize Widget Rebuilds with const</li><li>Optimize Asset Sizes and loading strategies</li></ul>`
+                id: 1, 
+                date: "Mar 22, 2026", 
+                title: "Why Performance Matters in Mobile Apps", 
+                excerpt: "Exploring the techniques to keep your Flutter apps running at a smooth 60 FPS...", 
+                img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=600",
+                content: `
+                    <p>User experience is the core of mobile development. Even a slight jank can frustrate users. In Flutter, performance isn't just about code; it's about how you manage your widget tree.</p>
+                    <br>
+                    <h3>1. Use RepaintBoundary</h3>
+                    <p>When you have a complex animation, wrap it in a RepaintBoundary to prevent the entire screen from repainting.</p>
+                    <br>
+                    <h3>2. The Power of 'const'</h3>
+                    <p>Using const constructors allows Flutter to short-circuit widget rebuilds, saving precious CPU cycles.</p>
+                    <br>
+                    <p>Always remember: A smooth app is a successful app. Happy coding!</p>
+                `
             }
         ];
 
@@ -274,18 +288,38 @@
         }
 
         // --- NAVIGATION ---
+        // --- Updated Blog Rendering & Share Logic ---
+
+        // Open Blog with Share Options
         function openBlog(id) {
             const blog = blogData.find(b => b.id === id);
             if(blog) {
+                // Build the Detail View
+                const detailHTML = `
+                    <div class="back-btn" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Back to Insights</div>
+                    <img class="blog-hero-img" src="${blog.img}">
+                    <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 10px; line-height: 1.2;">${blog.title}</h1>
+                    <p style="color: var(--primary); font-weight: 800; margin-bottom: 30px;">${blog.date}</p>
+                    
+                    <div class="blog-full-content">${blog.content}</div>
+
+                    <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border);">
+                        <p style="margin-bottom: 15px; font-weight: 700; color: var(--text-dim);">Share this Insight:</p>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="social-item" style="width:40px; height:40px; font-size: 1rem;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(blog.title + ' ' + window.location.href)}" target="_blank" class="social-item" style="width:40px; height:40px; font-size: 1rem;"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(blog.title)}" target="_blank" class="social-item" style="width:40px; height:40px; font-size: 1rem;"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                `;
+
                 document.getElementById('main-view').style.display = 'none';
                 document.getElementById('blog-view').style.display = 'block';
-                document.getElementById('blog-detail-img').src = blog.img;
-                document.getElementById('blog-detail-title').innerText = blog.title;
-                document.getElementById('blog-detail-date').innerText = blog.date;
-                document.getElementById('blog-detail-content').innerHTML = blog.content;
+                document.getElementById('blog-view').innerHTML = detailHTML;
                 window.scrollTo(0,0);
             }
         }
+
 
         function showMainView() {
             document.getElementById('main-view').style.display = 'block';
