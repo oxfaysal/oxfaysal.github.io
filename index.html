@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faisal | Full Stack Developer</title>
+    <title>LoomixDev | Weaving Code, Delivering Excellence</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -24,184 +24,56 @@
         html { scroll-behavior: smooth; }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-
-        /* Navigation */
+        /* Nav & Layout */
         nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 15px 8%; 
-            background: var(--nav-bg); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid var(--border); 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 8%; background: var(--nav-bg); backdrop-filter: blur(12px); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); 
         }
-        .logo { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+        .logo { font-size: 1.3rem; font-weight: 700; }
         .logo span { color: var(--primary); }
-        
         .nav-links { list-style: none; display: flex; gap: 25px; }
-        .nav-links a { text-decoration: none; color: var(--text-dim); font-weight: 500; font-size: 0.85rem; transition: 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section */
-        .hero { 
-            min-height: 85vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 60px 5%; 
-            position: relative; 
-        }
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            width: 250px; 
-            height: 250px; 
-            background: var(--primary); 
-            filter: blur(120px); 
-            opacity: 0.12; 
-            top: 20%; 
-            z-index: -1; 
-        }
-
-        .hero h1 { 
-            font-size: clamp(2.2rem, 7vw, 3.8rem); 
-            font-weight: 800; 
-            line-height: 1.15; 
-            margin-bottom: 20px; 
-        }
-        .hero h1 span { 
-            background: linear-gradient(90deg, var(--primary), var(--secondary)); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        .hero p { 
-            font-size: clamp(0.95rem, 2vw, 1.1rem); 
-            color: var(--text-dim); 
-            max-width: 650px; 
-            margin-bottom: 35px; 
-        }
-        
-        .cta-group { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-        .btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; display: inline-block; }
-        .btn-primary { background: var(--primary); color: #000; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 210, 255, 0.25); }
-        .btn-outline { border: 1px solid var(--border); color: var(--text-main); }
-        .btn-outline:hover { background: var(--glass); border-color: var(--primary); }
-
-        /* Section Layout */
         section { padding: 80px 8%; }
         .section-header { margin-bottom: 50px; }
-        .section-header h2 { font-size: clamp(1.6rem, 4vw, 2rem); font-weight: 700; margin-bottom: 12px; }
-        .section-header .line { width: 50px; height: 4px; background: var(--primary); border-radius: 2px; }
+        .section-header h2 { font-size: 2rem; font-weight: 700; }
+        .section-header h2 span { color: var(--primary); }
+        .section-header .line { width: 50px; height: 4px; background: var(--primary); border-radius: 2px; margin-top: 10px; }
 
-        /* Grid System - Responsive */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 20px; 
-        }
-        
-        /* Modern Card Design */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+
+        /* Card System */
         .card { 
-            background: var(--surface); 
-            border: 1px solid var(--border); 
-            border-radius: 16px; 
-            padding: 25px; 
-            transition: 0.4s ease; 
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 20px; 
+            padding: 25px; transition: 0.4s ease; display: flex; flex-direction: column; height: 100%; 
         }
-        .card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--primary); 
-            background: rgba(22, 27, 43, 0.6); 
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
         
-        .card-icon { 
-            width: 45px; height: 45px; 
-            background: var(--glass); 
-            border-radius: 10px; 
-            display: flex; align-items: center; justify-content: center; 
-            margin-bottom: 20px; color: var(--primary); font-size: 1.3rem; 
-        }
-        .card h3 { margin-bottom: 12px; font-size: 1.15rem; font-weight: 700; }
-        .card p { 
-            color: var(--text-dim); 
-            font-size: 0.9rem; 
-            margin-bottom: 20px; 
-            flex-grow: 1; /* Pushes the link to the bottom */
-        }
+        .card-img { width: 100%; height: 160px; background: #1a2236; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .card-icon { width: 45px; height: 45px; background: var(--glass); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); font-size: 1.3rem; }
+        
+        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
+        .tag { font-size: 0.65rem; padding: 4px 10px; background: rgba(0, 210, 255, 0.05); border: 1px solid rgba(0, 210, 255, 0.15); border-radius: 4px; color: var(--primary); font-weight: 700; }
 
-        .tag-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-        .tag { 
-            font-size: 0.65rem; 
-            padding: 4px 10px; 
-            background: rgba(0, 210, 255, 0.05); 
-            border: 1px solid rgba(0, 210, 255, 0.15); 
-            border-radius: 4px; color: var(--primary); 
-            font-weight: 600; 
-            text-transform: uppercase;
-        }
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-align: center; border: none; display: inline-block; }
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-outline { border: 1px solid var(--border); color: var(--text-main); margin-top: auto; width: fit-content; }
+        
+        .install-guide { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid var(--primary); font-size: 0.75rem; color: var(--text-dim); }
 
-        .card-link { 
-            text-decoration: none; 
-            color: var(--text-main); 
-            font-size: 0.8rem; 
-            font-weight: 700; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 6px; 
-            transition: 0.2s; 
-            width: fit-content;
-        }
-        .card-link:hover { gap: 10px; color: var(--primary); }
-
-        /* Footer */
         footer { padding: 60px 8%; background: #080c14; border-top: 1px solid var(--border); text-align: center; }
         .social-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
-        .social-links a { 
-            width: 42px; height: 42px; 
-            border-radius: 50%; 
-            background: var(--surface); 
-            display: flex; align-items: center; justify-content: center; 
-            color: var(--text-main); 
-            text-decoration: none; transition: 0.3s; 
-            border: 1px solid var(--border); 
-            font-size: 1.1rem;
-        }
-        .social-links a:hover { background: var(--primary); color: #000; transform: translateY(-5px); border-color: var(--primary); }
+        .social-links a { width: 42px; height: 42px; border-radius: 50%; background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--text-main); transition: 0.3s; border: 1px solid var(--border); }
+        .social-links a:hover { background: var(--primary); color: #000; transform: translateY(-5px); }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            nav { padding: 15px 5%; }
-            .nav-links { display: none; } /* Hide menu on mobile, or you can add a burger icon later */
-            section { padding: 60px 5%; }
-            .hero { min-height: 70vh; }
-            .grid { grid-template-columns: 1fr; } /* Stack cards on very small screens */
-            .hero h1 { line-height: 1.2; }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns for tablets */
-        }
+        @media (max-width: 768px) { section { padding: 60px 5%; } .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -209,19 +81,27 @@
     <nav>
         <div class="logo">Loomix<span>Dev</span></div>
         <ul class="nav-links">
-            <li><a href="#packages">Packages</a></li>
+            <li><a href="#apps">Apps</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#blog">Blog</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <h1>Building <span>Digital</span><br>Experiences.</h1>
-        <p>I am Faysal, a Mobile App Developer dedicated to weaving clean code and delivering excellence through Flutter.</p>
-        <div class="cta-group">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
+    <section id="apps">
+        <div class="section-header">
+            <h2>Product <span>Showcase</span></h2>
+            <div class="line"></div>
         </div>
+        <div class="grid" id="apps-list"></div>
+    </section>
+
+    <section id="projects" style="background: #0d121f;">
+        <div class="section-header">
+            <h2>Featured <span>Projects</span></h2>
+            <div class="line"></div>
+        </div>
+        <div class="grid" id="projects-list"></div>
     </section>
 
     <section id="packages">
@@ -229,123 +109,119 @@
             <h2>Flutter <span>Packages</span></h2>
             <div class="line"></div>
         </div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-font"></i></div>
-                <h3>bangla_fonts</h3>
-                <p>Load 20+ popular Bangla fonts dynamically from CDN. Save your app size by excluding heavy TTF files.</p>
-                <div class="tag-container">
-                    <span class="tag">CDN</span> <span class="tag">Typography</span>
-                </div>
-                <a href="https://pub.dev/packages/bangla_fonts" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-th-large"></i></div>
-                <h3>custom_masonry_grid</h3>
-                <p>A highly customizable masonry grid for Flutter with built-in shimmer loading and responsive support.</p>
-                <div class="tag-container">
-                    <span class="tag">Layout</span> <span class="tag">UI/UX</span>
-                </div>
-                <a href="https://pub.dev/packages/custom_masonry_grid" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
-                <h3>date_snap</h3>
-                <p>Lightweight utility for localized date formatting and relative time (ago) calculations in Flutter.</p>
-                <div class="tag-container">
-                    <span class="tag">Utility</span> <span class="tag">Date</span>
-                </div>
-                <a href="https://pub.dev/packages/date_snap" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
-                <h3>privacy_lens</h3>
-                <p>Easily manage and display privacy-focused permissions and data usage transparency to your users.</p>
-                <div class="tag-container">
-                    <span class="tag">Privacy</span> <span class="tag">Security</span>
-                </div>
-                <a href="https://pub.dev/packages/privacy_lens" class="card-link" target="_blank">PUB.DEV <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
+        <div class="grid" id="packages-list"></div>
     </section>
 
-    <section id="projects" style="background-color: #0d121f;">
+    <section id="blog" style="background: #0d121f;">
         <div class="section-header">
-            <h2>Open Source <span>Projects</span></h2>
+            <h2>Loomix <span>Insights</span></h2>
             <div class="line"></div>
         </div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-tshirt"></i></div>
-                <h3>Open Fashion</h3>
-                <p>A full-featured E-commerce app UI/UX kit for fashion stores built with Flutter's best practices.</p>
-                <div class="tag-container">
-                    <span class="tag">E-Commerce</span> <span class="tag">UI Kit</span>
-                </div>
-                <a href="https://github.com/oxfaysal/open_fashion" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                <h3>Fruit Hub</h3>
-                <p>Beautiful Fruit delivery app UI. Features clean animations and a vibrant minimalist design.</p>
-                <div class="tag-container">
-                    <span class="tag">Mobile</span> <span class="tag">Dart</span>
-                </div>
-                <a href="https://github.com/oxfaysal/fruit_hub" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-utensils"></i></div>
-                <h3>FoodGo</h3>
-                <p>Restaurant exploration and food delivery application with modern navigation and state management.</p>
-                <div class="tag-container">
-                    <span class="tag">Food Tech</span> <span class="tag">Design</span>
-                </div>
-                <a href="https://github.com/oxfaysal/foodgo" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-moon"></i></div>
-                <h3>Ramadan Tracker</h3>
-                <p>An essential companion app for Ramadan. Track prayers, fasting, and daily goals with ease.</p>
-                <div class="tag-container">
-                    <span class="tag">Productivity</span> <span class="tag">Islamic</span>
-                </div>
-                <a href="https://github.com/oxfaysal/Ramadan_Tracker" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-clock"></i></div>
-                <h3>DutyTrack</h3>
-                <p>Calculate and manage overtime work hours and duties for professional efficiency.</p>
-                <div class="tag-container">
-                    <span class="tag">Management</span> <span class="tag">Tools</span>
-                </div>
-                <a href="https://github.com/oxfaysal/DutyTrack" class="card-link" target="_blank">GITHUB <i class="fas fa-code-branch"></i></a>
-            </div>
-        </div>
+        <div class="grid" id="blog-list"></div>
     </section>
 
-    <footer id="contact">
-        <h2 style="margin-bottom: 10px;">Let's <span>Collaborate</span></h2>
-        <p style="color: var(--text-dim); margin-bottom: 35px; font-size: 0.95rem;">Open for opportunities and interesting Flutter projects.</p>
-        
+    <footer>
         <div class="social-links">
             <a href="https://github.com/oxfaysal" target="_blank"><i class="fab fa-github"></i></a>
             <a href="mailto:loomixdev@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://web.facebook.com/0xfaysal" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://t.me/your_telegram" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="https://wa.me/+8801833732555" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
-        
-        <p style="font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.5px;">
-            &copy; 2026 <strong>LoomixDev</strong>. All rights reserved. <br>
-            <span style="opacity: 0.7;">"Weaving Code, Delivering Excellence"</span>
-        </p>
+        <p style="font-size: 0.75rem; color: var(--text-dim);">&copy; 2026 <strong>LoomixDev</strong>. All rights reserved.</p>
     </footer>
 
+    <script>
+        // ==========================
+        // 1. APPS DATA (APK/Install)
+        // ==========================
+        const appData = [
+            {
+                name: "SebaXpress",
+                desc: "Emergency services, blood donation, and ambulance directory.",
+                img: "https://via.placeholder.com/400x200/161b2b/00d2ff?text=SebaXpress",
+                apk: "https://t.me/your_telegram", // Link to APK or Telegram
+                guide: "Download APK → Open File → Enable Unknown Sources → Install."
+            },
+            {
+                name: "DutyTracker",
+                desc: "Manage and calculate overtime work hours with precision.",
+                img: "https://via.placeholder.com/400x200/161b2b/00d2ff?text=DutyTracker",
+                apk: "https://oxfaysal.github.io/assets/apks/dutytrack.apk",
+                guide: "Click Download → Follow system installation prompts."
+            }
+        ];
+
+        // ==========================
+        // 2. PROJECTS DATA (GitHub)
+        // ==========================
+        const projectData = [
+            { name: "Open Fashion", desc: "E-commerce UI/UX kit for fashion stores.", tags: ["Flutter", "UI Kit"], link: "https://github.com/oxfaysal/open_fashion" },
+            { name: "Fruit Hub", desc: "Vibrant fruit delivery app with clean animations.", tags: ["Dart", "Mobile"], link: "https://github.com/oxfaysal/fruit_hub" }
+        ];
+
+        // ==========================
+        // 3. PACKAGES DATA (Pub.dev)
+        // ==========================
+        const packageData = [
+            { name: "bangla_fonts", desc: "Load 20+ Bangla fonts dynamically from CDN.", tags: ["Typography", "CDN"], link: "https://pub.dev/packages/bangla_fonts" },
+            { name: "custom_masonry_grid", desc: "Responsive masonry layout for Flutter.", tags: ["Layout", "UI"], link: "https://pub.dev/packages/custom_masonry_grid" }
+        ];
+
+        // ==========================
+        // 4. BLOG DATA
+        // ==========================
+        const blogData = [
+            { date: "Mar 22, 2026", title: "Flutter Performance Tips", excerpt: "How to maintain 60FPS in complex UIs...", link: "#" },
+            { date: "Mar 10, 2026", title: "Why We Built LoomixDev", excerpt: "Our vision for the future of mobile apps...", link: "#" }
+        ];
+
+        // --- AUTOMATION LOGIC ---
+        function renderAll() {
+            // Render Apps
+            document.getElementById('apps-list').innerHTML = appData.map(app => `
+                <div class="card">
+                    <div class="card-img"><img src="${app.img}" alt="${app.name}"></div>
+                    <h3>${app.name}</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">${app.desc}</p>
+                    <div class="install-guide"><strong>Guide:</strong> ${app.guide}</div>
+                    <a href="${app.apk}" class="btn btn-primary" style="margin-top:auto"><i class="fas fa-download"></i> Download APK</a>
+                </div>
+            `).join('');
+
+            // Render Projects
+            document.getElementById('projects-list').innerHTML = projectData.map(p => `
+                <div class="card">
+                    <div class="card-icon"><i class="fab fa-github"></i></div>
+                    <h3>${p.name}</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">${p.desc}</p>
+                    <div class="tag-container">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <a href="${p.link}" target="_blank" class="btn btn-outline">GITHUB <i class="fas fa-code-branch"></i></a>
+                </div>
+            `).join('');
+
+            // Render Packages
+            document.getElementById('packages-list').innerHTML = packageData.map(pkg => `
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-box"></i></div>
+                    <h3>${pkg.name}</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">${pkg.desc}</p>
+                    <div class="tag-container">${pkg.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <a href="${pkg.link}" target="_blank" class="btn btn-outline">PUB.DEV <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            `).join('');
+
+            // Render Blogs
+            document.getElementById('blog-list').innerHTML = blogData.map(b => `
+                <div class="card">
+                    <span style="font-size: 0.7rem; color: var(--primary); font-weight: 700;">${b.date}</span>
+                    <h3 style="margin-top: 10px;">${b.title}</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px;">${b.excerpt}</p>
+                    <a href="${b.link}" class="btn btn-outline">Read More</a>
+                </div>
+            `).join('');
+        }
+
+        window.onload = renderAll;
+    </script>
 </body>
 </html>
