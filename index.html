@@ -3,128 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoomixDev | Full-Stack Developer</title>
+    <title>LoomixDev | Weaving Code</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg: #030712;
-            --surface: #111827;
+            --bg: #020617;
+            --card-bg: rgba(15, 23, 42, 0.6);
             --primary: #00d2ff;
             --accent: #8b5cf6;
-            --text-main: #f9fafb;
-            --text-dim: #9ca3af;
-            --border: rgba(255, 255, 255, 0.08);
-            --card-bg: rgba(17, 24, 39, 0.6);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(0, 210, 255, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); overflow-x: hidden; line-height: 1.5; }
 
-        /* --- Background --- */
-        .blob { position: fixed; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0, 210, 255, 0.1) 0%, transparent 70%); z-index: -1; filter: blur(60px); animation: move 15s infinite alternate; }
-        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(30%, 30%); } }
+        /* --- Animated Gradient Background --- */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+        }
 
-        /* --- Navigation --- */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .logo { font-size: 1.3rem; font-weight: 800; cursor: pointer; }
+        /* --- Professional Navigation --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -1px; cursor: pointer; }
         .logo span { color: var(--primary); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; transition: 0.3s; }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
         /* --- Hero --- */
-        .hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 5%; }
-        .hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
-        .hero h1 span { background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1rem; color: var(--text-dim); max-width: 600px; margin-bottom: 30px; padding: 0 10px; }
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-dim); max-width: 600px; margin-bottom: 35px; font-size: 1.1rem; }
 
-        /* --- Section Layout --- */
-        section { padding: 60px 8%; }
-        .section-header { margin-bottom: 40px; }
-        .section-header h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
-        .section-header .line { width: 50px; height: 4px; background: var(--primary); border-radius: 10px; }
+        /* --- Modern Card UI --- */
+        section { padding: 80px 8%; }
+        .section-header { margin-bottom: 50px; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+        .section-header .line { width: 40px; height: 4px; background: var(--primary); border-radius: 10px; }
 
-        /* --- Grid & Cards (Optimized Size) --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        
         .card { 
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; 
-            padding: 20px; transition: 0.3s ease; display: flex; flex-direction: column; 
-            backdrop-filter: blur(10px); height: 100%;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; 
+            padding: 24px; transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); position: relative;
+            overflow: hidden; backdrop-filter: blur(10px); display: flex; flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); background: rgba(17, 24, 39, 0.9); }
-        
-        .card-img { width: 100%; height: 150px; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,210,255,0.1), transparent); opacity: 0; transition: 0.4s; }
+        .card:hover { transform: translateY(-8px); border-color: var(--glass-border); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5); }
+        .card:hover::before { opacity: 1; }
+
+        .card-img { width: 100%; height: 160px; border-radius: 16px; margin-bottom: 20px; overflow: hidden; position: relative; z-index: 1; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card:hover .card-img img { transform: scale(1.1); }
+
+        .card-icon { width: 48px; height: 48px; background: rgba(0, 210, 255, 0.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary); font-size: 1.4rem; z-index: 1; }
         
-        .card-icon { width: 40px; height: 40px; background: rgba(0, 210, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: var(--primary); font-size: 1.2rem; }
-        .card h3 { font-size: 1.15rem; margin-bottom: 10px; line-height: 1.3; }
-        .card p { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 15px; flex-grow: 1; }
+        .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; z-index: 1; }
+        .card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; z-index: 1; }
+
+        .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; z-index: 1; }
+        .tag { font-size: 0.7rem; padding: 5px 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; color: var(--text-dim); }
 
         /* --- Buttons --- */
-        .btn { padding: 10px 20px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px; border: none; cursor: pointer; }
-        .btn-primary { background: var(--primary); color: #000; }
-        .btn-outline { border: 1px solid var(--border); color: var(--text-main); }
-        .tag { font-size: 0.65rem; padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 100px; color: var(--text-dim); margin-right: 5px; }
+        .btn { padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; z-index: 1; border: none; cursor: pointer; }
+        .btn-primary { background: var(--primary); color: #000; box-shadow: 0 8px 20px -6px var(--primary); }
+        .btn-primary:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn-outline { background: rgba(255,255,255,0.03); color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover { background: var(--border); border-color: var(--text-dim); }
 
-        /* --- Blog Content Page (Hidden by default) --- */
+        /* --- Blog Details --- */
         #main-view { display: block; }
-        #blog-view { display: none; padding: 40px 8%; max-width: 900px; margin: auto; }
-        .back-btn { margin-bottom: 20px; color: var(--primary); cursor: pointer; display: inline-block; font-weight: 700; }
-        .blog-hero-img { width: 100%; height: 350px; border-radius: 24px; object-fit: cover; margin-bottom: 30px; border: 1px solid var(--border); }
-        .blog-full-content { font-size: 1.1rem; color: var(--text-dim); line-height: 1.8; }
-        .blog-full-content h2, .blog-full-content h3 { color: var(--text-main); margin: 30px 0 15px; }
+        #blog-view { display: none; padding: 60px 8%; max-width: 800px; margin: auto; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .back-btn { margin-bottom: 30px; color: var(--primary); cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .blog-hero-img { width: 100%; height: 400px; border-radius: 30px; object-fit: cover; margin-bottom: 30px; border: 1px solid var(--border); }
+        .blog-full-content { font-size: 1.15rem; color: #cbd5e1; line-height: 1.8; }
 
-        footer { padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); }
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid var(--border); }
 
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             nav { padding: 15px 5%; }
             .nav-links { display: none; }
-            section { padding: 40px 5%; }
-            .blog-hero-img { height: 200px; }
-            .grid { grid-template-columns: 1fr; }
+            section { padding: 60px 5%; }
+            .hero h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="blob"></div>
+    <div class="bg-glow"></div>
 
     <nav>
         <div class="logo" onclick="showMainView()">Loomix<span>Dev</span></div>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="#about">Expertise</a></li>
             <li><a href="#apps">Apps</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="#projects">GitHub</a></li>
+            <li><a href="#blog">Insights</a></li>
         </ul>
     </nav>
 
     <div id="main-view">
         <section class="hero">
-            <h1>Weaving <span>Code</span>,<br>Delivering Excellence.</h1>
-            <p>Full-stack developer building high-quality mobile and web solutions with Flutter, Python, and PHP.</p>
-            <div style="display: flex; gap: 10px;">
-                <a href="#apps" class="btn btn-primary">Download Apps</a>
-                <a href="https://wa.me/+8801833732555" class="btn btn-outline">Contact Me</a>
+            <h1>Weaving <span>Clean Code</span><br>Delivering Excellence.</h1>
+            <p>Full-stack developer at LoomixDev specializing in building robust mobile experiences with Flutter and scalable backends.</p>
+            <div style="display: flex; gap: 15px;">
+                <a href="#apps" class="btn btn-primary">My Apps <i class="fas fa-rocket"></i></a>
+                <a href="https://wa.me/+8801833732555" class="btn btn-outline">Let's Talk</a>
             </div>
         </section>
 
         <section id="about">
-            <div class="section-header"><h2>Expertise</h2><div class="line"></div></div>
+            <div class="section-header"><h2>Technical Expertise</h2><div class="line"></div></div>
             <div class="grid" id="skills-list"></div>
         </section>
 
         <section id="apps" style="background: rgba(255,255,255,0.01);">
-            <div class="section-header"><h2>Apps</h2><div class="line"></div></div>
+            <div class="section-header"><h2>Featured Apps</h2><div class="line"></div></div>
             <div class="grid" id="apps-list"></div>
         </section>
 
         <section id="projects">
-            <div class="section-header"><h2>Projects</h2><div class="line"></div></div>
+            <div class="section-header"><h2>Open Source Projects</h2><div class="line"></div></div>
             <div class="grid" id="projects-list"></div>
         </section>
 
@@ -135,70 +144,52 @@
     </div>
 
     <div id="blog-view">
-        <div class="back-btn" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Back to Home</div>
-        <img id="blog-detail-img" class="blog-hero-img" src="" alt="">
-        <h1 id="blog-detail-title" style="font-size: 2.5rem; margin-bottom: 10px;"></h1>
+        <div class="back-btn" onclick="showMainView()"><i class="fas fa-chevron-left"></i> Back to Explore</div>
+        <img id="blog-detail-img" class="blog-hero-img" src="">
+        <h1 id="blog-detail-title" style="font-size: 2.5rem; margin-bottom: 10px; letter-spacing: -1px;"></h1>
         <p id="blog-detail-date" style="color: var(--primary); font-weight: 700; margin-bottom: 30px;"></p>
         <div id="blog-detail-content" class="blog-full-content"></div>
     </div>
 
     <footer>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 LoomixDev. Created by Faysal.</p>
+        <div class="logo" style="margin-bottom: 20px;">Loomix<span>Dev</span></div>
+        <p style="color: var(--text-dim); font-size: 0.9rem;">&copy; 2026 LoomixDev. All rights reserved.</p>
     </footer>
 
     <script>
-        // --- DATA ---
         const skillData = [
-            { name: "Flutter & Dart", icon: "fa-mobile-screen", desc: "Expertise in high-performance Android & iOS app development." },
-            { name: "Backend", icon: "fa-server", desc: "Building scalable APIs with FastAPI, PHP, and MySQL." },
-            { name: "Architecture", icon: "fa-code", desc: "Clean Architecture and Git-based version control workflows." }
+            { name: "Flutter & Dart", icon: "fa-mobile-screen-button", desc: "Expert in building high-performance Android & iOS apps with custom animations and Clean Architecture." },
+            { name: "Full-Stack Backend", icon: "fa-server", desc: "Developing scalable REST APIs using Python FastAPI and PHP, integrated with MySQL and PostgreSQL." },
+            { name: "Firebase Services", icon: "fa-fire", desc: "Real-time databases, authentication, and push notifications for high-engagement mobile applications." }
         ];
 
         const appData = [
-            { name: "SebaXpress", desc: "Emergency service directory for Bangladesh.", img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=400", apk: "https://oxfaysal.github.io/assets/apks/sebaxpress.apk" },
-            { name: "DutyTracker", desc: "Overtime management for professionals.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=400", apk: "https://oxfaysal.github.io/assets/apks/dutytrack.apk" }
+            { name: "SebaXpress", desc: "A premium directory for emergency services, ambulance booking, and blood donation in BD.", img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=600", apk: "https://oxfaysal.github.io/assets/apks/sebaxpress.apk" },
+            { name: "DutyTracker", desc: "The ultimate tool for tracking overtime hours and generating professional monthly reports.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600", apk: "https://oxfaysal.github.io/assets/apks/dutytrack.apk" }
+        ];
+
+        const projectData = [
+            { name: "Open Fashion", tags: ["Flutter", "E-commerce"], desc: "Modern UI kit for online retail apps with dark mode support.", link: "https://github.com/oxfaysal" },
+            { name: "Bangla Fonts", tags: ["Dart", "Typography"], desc: "A package to load web-based Bangla fonts dynamically in Flutter.", link: "https://pub.dev/packages/bangla_fonts" }
         ];
 
         const blogData = [
             { 
-                id: 1,
-                date: "March 22, 2026", 
-                title: "Optimizing Flutter Performance", 
-                excerpt: "How to maintain 60FPS in complex applications using best practices...", 
-                img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=500",
-                content: `<h2>Why Performance Matters</h2><p>In the world of mobile apps, speed is everything. A laggy UI can drive users away instantly.</p><h3>Key Techniques</h3><ul><li>Use const constructors</li><li>Avoid unnecessary builds</li><li>Optimize heavy images</li></ul><p>By following these steps, you can significantly reduce frame drops in your Flutter apps.</p>`
-            },
-            { 
-                id: 2,
-                date: "March 15, 2026", 
-                title: "The Power of Clean Architecture", 
-                excerpt: "Why we use Clean Architecture at LoomixDev for scalable products...", 
-                img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=500",
-                content: `<h2>Structuring for Success</h2><p>Clean architecture allows us to decouple our business logic from UI and data layers.</p><h3>Benefits</h3><ul><li>Easier testing</li><li>Team collaboration</li><li>Scalability</li></ul><p>This approach ensures that as your app grows, it remains maintainable and error-free.</p>`
+                id: 1, date: "Mar 22, 2026", title: "Why Performance Matters in Mobile Apps", excerpt: "Exploring the techniques to keep your Flutter apps running at a smooth 60 FPS...", img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=600",
+                content: `<p>User experience is the core of mobile development. A delay of even 100ms can be noticed by users.</p><h3>Key Tips</h3><ul><li>Use RepaintBoundary</li><li>Minimize Widget Rebuilds</li><li>Optimize Asset Sizes</li></ul>`
             }
         ];
 
-        // --- RENDER LOGIC ---
         function render() {
-            // Skills
             document.getElementById('skills-list').innerHTML = skillData.map(s => `<div class="card"><div class="card-icon"><i class="fas ${s.icon}"></i></div><h3>${s.name}</h3><p>${s.desc}</p></div>`).join('');
+            
+            document.getElementById('apps-list').innerHTML = appData.map(app => `<div class="card"><div class="card-img"><img src="${app.img}"></div><h3>${app.name}</h3><p>${app.desc}</p><a href="${app.apk}" class="btn btn-primary" style="width:100%; justify-content:center;">Download APK</a></div>`).join('');
 
-            // Apps
-            document.getElementById('apps-list').innerHTML = appData.map(app => `<div class="card"><div class="card-img"><img src="${app.img}"></div><h3>${app.name}</h3><p>${app.desc}</p><a href="${app.apk}" class="btn btn-primary">Download APK</a></div>`).join('');
+            document.getElementById('projects-list').innerHTML = projectData.map(p => `<div class="card"><div class="card-icon" style="background:rgba(255,255,255,0.05); color:#fff;"><i class="fab fa-github"></i></div><h3>${p.name}</h3><p>${p.desc}</p><div class="tag-row">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div><a href="${p.link}" class="btn btn-outline" style="width:100%; justify-content:center;">View Repository</a></div>`).join('');
 
-            // Blogs
-            document.getElementById('blog-list').innerHTML = blogData.map(b => `
-                <div class="card">
-                    <div class="card-img"><img src="${b.img}"></div>
-                    <span style="font-size:0.7rem; color:var(--primary);">${b.date}</span>
-                    <h3 style="margin-top:5px;">${b.title}</h3>
-                    <p>${b.excerpt}</p>
-                    <button onclick="openBlog(${b.id})" class="btn btn-outline">Read Full Article</button>
-                </div>
-            `).join('');
+            document.getElementById('blog-list').innerHTML = blogData.map(b => `<div class="card"><div class="card-img"><img src="${b.img}"></div><span style="font-size:0.75rem; color:var(--primary); font-weight:700;">${b.date}</span><h3 style="margin-top:10px;">${b.title}</h3><p>${b.excerpt}</p><button onclick="openBlog(${b.id})" class="btn btn-outline" style="width:100%; justify-content:center;">Read Insights</button></div>`).join('');
         }
 
-        // --- NAVIGATION LOGIC ---
         function openBlog(id) {
             const blog = blogData.find(b => b.id === id);
             if(blog) {
@@ -215,7 +206,6 @@
         function showMainView() {
             document.getElementById('main-view').style.display = 'block';
             document.getElementById('blog-view').style.display = 'none';
-            window.scrollTo(0,0);
         }
 
         window.onload = render;
