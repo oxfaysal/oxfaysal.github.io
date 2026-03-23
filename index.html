@@ -180,25 +180,6 @@
 
     <script>
 
-function updateCounter() {
-        // CountAPI-র একটি অল্টারনেটিভ প্রক্সি ব্যবহার করছি যা বাংলাদেশে খুব ফাস্ট
-        const url = "https://api.counterapi.dev/v1/oxfaysal/visits/up";
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('visitor-count').innerText = data.count;
-            })
-            .catch(err => {
-                console.error(err);
-                document.getElementById('visitor-count').innerText = "1.5k+"; // এরর হলে এটি দেখাবে
-            });
-    }
-
-    // পেজ লোড হলে কল হবে
-    window.onload = updateCounter;
-
-
        const skillData = [
             { name: "Flutter & Dart Expertise", icon: "fa-mobile-screen-button", desc: "Expert in building high-performance Android & iOS apps with Custom Animations and seamless User Experiences." },
             { name: "State & Data Management", icon: "fa-database", desc: "Advanced State Management and local data handling using sqflite, Hive, and optimized MySQL Database architectures." },
@@ -358,6 +339,22 @@ function updateCounter() {
             }
         ];
 
+        function updateCounter() {
+                // CountAPI-র একটি অল্টারনেটিভ প্রক্সি ব্যবহার করছি যা বাংলাদেশে খুব ফাস্ট
+                const url = "https://api.counterapi.dev/v1/oxfaysal/visits/up";
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById('visitor-count').innerText = data.count;
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        document.getElementById('visitor-count').innerText = "1.5k+"; // এরর হলে এটি দেখাবে
+                    });
+            };
+
+
         function render() {
             document.getElementById('skills-list').innerHTML = skillData.map(s => `
                 <div class="card"><div class="card-icon"><i class="fas ${s.icon}"></i></div><h3>${s.name}</h3><p>${s.desc}</p></div>
@@ -385,7 +382,7 @@ function updateCounter() {
                 <h3 style="margin:10px 0;">${b.title}</h3><p>${b.excerpt}</p>
                 <button onclick="openBlog(${b.id})" class="btn btn-outline">Read Article</button></div>
             `).join('');
-        }
+        };
 
         function openBlog(id) {
             const blog = blogData.find(b => b.id === id);
@@ -413,15 +410,18 @@ function updateCounter() {
                 document.getElementById('blog-view').style.display = 'block';
                 window.scrollTo(0,0);
             }
-        }
+        };
 
         function showMainView() {
             document.getElementById('main-view').style.display = 'block';
             document.getElementById('blog-view').style.display = 'none';
             window.scrollTo(0,0);
-        }
+        };
 
-        window.onload = render;
+        window.onload = function() {
+            render();    
+            updateCounter(); 
+        };
     </script>
 </body>
 </html>
