@@ -511,71 +511,79 @@ final List<Product> dummyProducts = [
 
 
         function render() {
+            // Technical Expertise Render
             document.getElementById('skills-list').innerHTML = skillData.map(s => `
                 <div class="card"><div class="card-icon"><i class="fas ${s.icon}"></i></div><h3>${s.name}</h3><p>${s.desc}</p></div>
             `).join('');
             
+            // Featured Apps Render
             document.getElementById('apps-list').innerHTML = appData.map(app => `
-                <div class="card"><div class="card-img"><img src="${app.img}" onerror="this.style.display='none'"></div><h3>${app.name}</h3><p>${app.desc}</p>
-                <a href="${app.apk}" class="btn btn-primary">Download APK <i class="fas fa-download"></i></a></div>
+                <div class="card">
+                    <div class="card-img"><img src="${app.img}" alt="${app.name}"></div>
+                    <h3>${app.name}</h3><p>${app.desc}</p>
+                    <a href="${app.apk}" class="btn btn-primary">Download APK <i class="fas fa-download"></i></a>
+                </div>
             `).join('');
 
+            // Open Source Packages Render
             document.getElementById('packages-list').innerHTML = packageData.map(pkg => `
-                <div class="card"><div class="card-icon" style="color:var(--primary)"><i class="fas fa-box-open"></i></div><h3>${pkg.name}</h3><p>${pkg.desc}</p>
-                <div class="tag-row">${pkg.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-                <a href="${pkg.link}" target="_blank" class="btn btn-outline">View on Pub.dev</a></div>
+                <div class="card">
+                    <div class="card-icon" style="color:var(--primary)"><i class="fas fa-box-open"></i></div>
+                    <h3>${pkg.name}</h3><p>${pkg.desc}</p>
+                    <div class="tag-row">${pkg.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <a href="${pkg.link}" target="_blank" class="btn btn-outline">View on Pub.dev</a>
+                </div>
             `).join('');
 
-            document.getElementById('projects-list').innerHTML = projectData.map(p => `
-                <div class="card"><div class="card-icon"><i class="fab fa-github"></i></div><h3>${p.name}</h3><p>${p.desc}</p>
-                <div class="tag-row">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-                <a href="${p.link}" target="_blank" class="btn btn-outline">View Repository</a></div>
+            // GitHub Projects Render
+            document.getElementById('projects-list').innerHTML = projectData.map(proj => `
+                <div class="card">
+                    <h3>${proj.name}</h3><p>${proj.desc}</p>
+                    <div class="tag-row">${proj.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <a href="${proj.link}" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> View Source</a>
+                </div>
             `).join('');
 
-            document.getElementById('blog-list').innerHTML = blogData.map(b => `
-                <div class="card"><div class="card-img"><img src="${b.img}" onerror="this.style.display='none'"></div><span style="color:var(--primary); font-size:0.8rem;">${b.date}</span>
-                <h3 style="margin:10px 0;">${b.title}</h3><p>${b.excerpt}</p>
-                <button onclick="openBlog(${b.id})" class="btn btn-outline">Read Article</button></div>
+            // Blog Insights Render
+            document.getElementById('blog-list').innerHTML = blogData.map(post => `
+                <div class="card" onclick="showBlog(${post.id})" style="cursor:pointer">
+                    <div class="card-img"><img src="${post.img}" alt="${post.title}"></div>
+                    <span style="font-size:0.75rem; color:var(--primary)">${post.date}</span>
+                    <h3 style="margin-top:10px">${post.title}</h3>
+                    <p>${post.excerpt}</p>
+                    <span class="btn btn-outline" style="width:fit-content">Read Insights <i class="fas fa-arrow-right"></i></span>
+                </div>
             `).join('');
-        };
+        }
 
-        function openBlog(id) {
-            const blog = blogData.find(b => b.id === id);
-            if(blog) {
-                // Dynamic Share Links
-                const currentUrl = window.location.href;
-                const shareUrl = encodeURIComponent(currentUrl);
-                const shareText = encodeURIComponent(blog.title + " - LoomixDev Insights");
-                
-                document.getElementById('blog-view').innerHTML = `
-                    <div class="back-btn" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Back to Insights</div>
-                    <img class="blog-hero-img" src="${blog.img}" onerror="this.style.display='none'">
-                    <h1 style="font-family: var(--font-bangla);">${blog.title}</h1>
-                    <p style="color: var(--primary); margin-bottom:30px;">${blog.date}</p>
-                    <div class="blog-full-content">${blog.content}</div>
-                    <div style="margin-top:50px; border-top:1px solid var(--border); padding-top:30px;">
-                        <p style="margin-bottom:15px; font-weight:bold; font-family:var(--font-bangla);">আর্টিকেলটি শেয়ার করুন:</p>
-                        <div style="display:flex; gap:15px;">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" class="social-item"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}" target="_blank" class="social-item"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                `;
-                document.getElementById('main-view').style.display = 'none';
-                document.getElementById('blog-view').style.display = 'block';
-                window.scrollTo(0,0);
-            }
-        };
+        // Blog View Logic
+        function showBlog(id) {
+            const post = blogData.find(b => b.id === id);
+            if(!post) return;
+
+            document.getElementById('main-view').style.display = 'none';
+            const blogView = document.getElementById('blog-view');
+            blogView.style.display = 'block';
+            
+            blogView.innerHTML = `
+                <div class="back-btn" onclick="showMainView()"><i class="fas fa-arrow-left"></i> Back to Portfolio</div>
+                <img src="${post.img}" class="blog-hero-img" alt="${post.title}">
+                <h1 style="font-size: 2.5rem; margin-bottom: 15px;">${post.title}</h1>
+                <div style="color:var(--primary); font-weight:700; margin-bottom: 30px;">Published on ${post.date}</div>
+                <div class="blog-full-content">${post.content}</div>
+            `;
+            window.scrollTo(0,0);
+        }
 
         function showMainView() {
-            document.getElementById('main-view').style.display = 'block';
             document.getElementById('blog-view').style.display = 'none';
-            window.scrollTo(0,0);
-        };
+            document.getElementById('main-view').style.display = 'block';
+        }
 
-        window.onload = function() {
-            render();    
-            updateCounter(); 
+        // Initialize Everything
+        window.onload = () => {
+            render();
+            updateCounter();
         };
     </script>
 </body>
