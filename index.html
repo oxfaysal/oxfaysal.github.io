@@ -34,6 +34,15 @@
         h3, .blog-full-content, p {
             font-family: 'Plus Jakarta Sans', var(--font-bangla);
         }
+        pre {
+            overflow-x: auto; /* Horizontal scrollbar add korbe jodi line boro hoy */
+            white-space: pre; /* Code-er original formatting thik rakhbe */
+            max-width: 100%;  /* Jeno container-er baire na jay */
+        }
+
+        code {
+            word-wrap: break-word; /* Khub boro word hole break korbe */
+        }
 
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
@@ -377,7 +386,7 @@
                     <p><b>১. প্যাকেজ ইনস্টলেশন</b></p>
                     <p>আপনার <code>pubspec.yaml</code>-এ প্যাকেজটি যুক্ত করুন:</p>
                     <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>dependencies:
-            adaptive_deep_linker: ^0.0.1</code></pre>
+            adaptive_deep_linker: ^1.0.0</code></pre>
 
                     <br>
                     <p><b>২. নেটিভ কনফিগারেশন (ম্যাজিক কমান্ড)</b></p>
