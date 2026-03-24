@@ -343,6 +343,122 @@
                     </div>
                 `
             },
+            { 
+                id: 5, 
+                date: "March 24, 2026", 
+                title: "Simplify Flutter Deep Linking with Adaptive Deep Linker 🔗", 
+                excerpt: "Flutter অ্যাপে Deep Linking সেটআপ করা এখন আরও সহজ! adaptive_deep_linker প্যাকেজটি ব্যবহার করে কীভাবে মাত্র একটি কমান্ডে Android ও iOS নেটিভ কনফিগারেশন অটোমেট করবেন এবং ডাইনামিক ইউআরএল হ্যান্ডেল করবেন তা জানুন।", 
+                img: "https://oxfaysal.github.io/assets/img/adaptive_deep_linker.png",
+                content: `
+                    <p>Flutter অ্যাপে Deep Linking সেটআপ করা অনেক সময় ডেভেলপারদের জন্য বেশ ঝামেলার হয়ে দাঁড়ায়। বিশেষ করে যখন আপনাকে ম্যানুয়ালি <code>AndroidManifest.xml</code> বা <code>Info.plist</code> এডিট করতে হয় এবং ডাইনামিক ইউআরএল (যেমন: <code>/product/:id</code>) থেকে ডাটা এক্সট্রাক্ট করতে হয়।</p>
+                    
+                    <br>
+                    <h4>🤔 মূল চ্যালেঞ্জটি কোথায়?</h4>
+                    <p>সাধারণত ডিপ লিঙ্কিং সেটআপ করতে গেলে আমাদের অ্যান্ড্রয়েড এবং আইওএস-এর নেটিভ ফাইলে অনেক কোড লিখতে হয়। এছাড়া ইউআরএল থেকে প্যারামিটার আলাদা করার জন্য জটিল Regex বা কাস্টম লজিক ব্যবহার করতে হয়, যা কোডবেসকে অগোছালো করে তোলে।</p>
+                    
+                    <br>
+                    <h4>💡 সমাধান: adaptive_deep_linker</h4>
+                    <p><b>adaptive_deep_linker</b> এই পুরো প্রক্রিয়াটিকে অটোমেটেড এবং সহজ করে দেয়। এটি একটি লাইটওয়েট প্যাকেজ যা আপনার অ্যাপের রাউটিং এবং নেটিভ কনফিগারেশনকে এক জায়গায় নিয়ে আসে।</p>
+                    
+                    <br>
+                    <div style="background: rgba(1, 117, 194, 0.05); padding: 20px; border-radius: 10px; border-left: 5px solid #0175C2;">
+                        <h4 style="margin-top:0;">🌟 কেন এটি ব্যবহার করবেন?</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✅ <b>Automated CLI:</b> মাত্র একটি কমান্ডে অ্যান্ড্রয়েড এবং আইওএস-এর জন্য প্রয়োজনীয় নেটিভ সেটআপ সম্পন্ন করে।</li>
+                            <li>✅ <b>Dynamic Path Handling:</b> ইউআরএল থেকে খুব সহজেই প্যারামিটার (যেমন: <code>:id</code>, <code>:slug</code>) এক্সট্রাক্ট করা যায়।</li>
+                            <li>✅ <b>Clean Routing:</b> এটি ফ্লাটারের ডিফল্ট <code>onGenerateRoute</code> এর সাথে চমৎকারভাবে কাজ করে।</li>
+                            <li>✅ <b>Zero Dependencies:</b> কোনো এক্সটার্নাল লাইব্রেরি ছাড়াই এটি তৈরি, ফলে অ্যাপের সাইজ বাড়ে না।</li>
+                        </ul>
+                    </div>
+
+                    <br><br>
+                    <h4>🚀 কীভাবে শুরু করবেন?</h4>
+                    
+                    <p><b>১. প্যাকেজ ইনস্টলেশন</b></p>
+                    <p>আপনার <code>pubspec.yaml</code>-এ প্যাকেজটি যুক্ত করুন:</p>
+                    <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>dependencies:
+            adaptive_deep_linker: ^0.0.1</code></pre>
+
+                    <br>
+                    <p><b>২. নেটিভ কনফিগারেশন (ম্যাজিক কমান্ড)</b></p>
+                    <p>ম্যানুয়ালি ফাইল এডিট না করে আপনার ডোমেইন সহ এই কমান্ডটি রান করুন:</p>
+                    <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>dart run adaptive_deep_linker:setup yourdomain.com</code></pre>
+
+                    <br>
+                    <p><b>৩. ডামি ডাটা মডেল তৈরি</b></p>
+                    <p>প্রথমে একটি সিম্পল মডেল এবং কিছু ডাটা তৈরি করে নিই:</p>
+                    <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>class Product {
+            final int id;
+            final String title;
+            final int price;
+
+            Product({required this.id, required this.title, required this.price});
+            }
+
+            final List<Product> dummyProducts = [
+            Product(id: 500, title: "Laptop Bag", price: 1200),
+            Product(id: 501, title: "Smart Watch", price: 2500),
+            ];</code></pre>
+
+                    <br>
+                    <p><b>৪. রাউটিং সেটআপ</b></p>
+                    <p>আপনার <code>AdaptiveDeepLinker</code>-এ ডাইনামিক পাথটি এভাবে ডিফাইন করুন:</p>
+                    <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>final linker = AdaptiveDeepLinker(
+            routes: [
+                AdaptiveRoute(
+                path: '/product/:id',
+                builder: (params) {
+                    final productId = int.tryParse(params['id'] ?? '') ?? 0;
+                    final product = dummyProducts.firstWhere(
+                    (p) => p.id == productId,
+                    orElse: () => Product(id: 0, title: "Not Found", price: 0),
+                    );
+                    return ProductPage(product: product);
+                },
+                ),
+            ],
+            );
+
+            // MaterialApp-এ ইন্টিগ্রেট করুন
+            MaterialApp(
+            onGenerateRoute: linker.handleRoute,
+            );</code></pre>
+
+                    <br>
+                    <p><b>৫. প্রোডাক্ট পেজ UI</b></p>
+                    <pre style="background: #1e1e2e; padding: 15px; border-radius: 8px; color: #fff;"><code>class ProductPage extends StatelessWidget {
+            final Product product;
+            const ProductPage({super.key, required this.product});
+
+            @override
+            Widget build(BuildContext context) {
+                return Scaffold(
+                app_bar: AppBar(title: Text(product.title)),
+                body: Center(
+                    child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                        const Icon(Icons.shopping_bag, size: 80, color: Colors.blue),
+                        Text(product.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                        Text("Price: BDT \${product.price}"),
+                        Text("Product ID: \${product.id}"),
+                    ],
+                    ),
+                ),
+                );
+            }
+            }</code></pre>
+
+                    <br>
+                    <div style="margin: 30px 0; text-align: center;">
+                        <a href="https://pub.dev/packages/adaptive_deep_linker" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; margin-right: 10px;">View on Pub.dev</a>
+                        <a href="https://github.com/oxfaysal/adaptive_deep_linker" target="_blank" style="background: #333; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">GitHub Repository</a>
+                    </div>
+                    
+                    <br>
+                    <p>ডেভেলপার হিসেবে আমাদের কাজকে সহজ করাই <b>LoomixDev</b>-এর মূল লক্ষ্য। আপনার অ্যাপে প্যাকেজটি ট্রাই করুন এবং কোনো ফিডব্যাক বা কন্ট্রিবিউশন থাকলে অবশ্যই জানাবেন। কোডিং হোক সহজ এবং আনন্দময়!</p>
+                `
+            }
             
         ];
 
