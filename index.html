@@ -194,6 +194,12 @@
         ];
 
         const packageData = [
+            { 
+                name: "adaptive_deep_linker", 
+                tags: ["Deep Link", "Automation", "CLI"], 
+                desc: "Automate native configurations and simplify dynamic URL parsing for Flutter apps.", 
+                link: "https://pub.dev/packages/adaptive_deep_linker" 
+            },
             { name: "bangla_fonts", tags: ["Typography", "Optimization"], desc: "Dynamically load popular Bangla fonts without increasing APK size.", link: "https://pub.dev/packages/bangla_fonts" },
             { name: "custom_masonry_grid", tags: ["UI", "Layout"], desc: "Responsive masonry layout with built-in shimmer loading effects.", link: "https://pub.dev/packages/custom_masonry_grid" },
             { name: "date_snap", tags: ["Utils", "Localization"], desc: "Localized date formatting and relative time (e.g., '2 mins ago') in Bangla.", link: "https://pub.dev/packages/date_snap" },
@@ -335,6 +341,65 @@
                     <div style="margin: 20px 0;">
                         <a href="https://pub.dev/packages/privacy_lens" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">Secure Your App</a>
                     </div>
+                `
+            },
+            { 
+                id: 5, 
+                date: "March 24, 2026", 
+                title: "Simplify Flutter Deep Linking with Adaptive Deep Linker 🔗", 
+                excerpt: "Flutter অ্যাপে Deep Linking সেটআপ করা এখন আরও সহজ! adaptive_deep_linker প্যাকেজটি ব্যবহার করে কীভাবে মাত্র একটি কমান্ডে Android ও iOS নেটিভ কনফিগারেশন অটোমেট করবেন এবং ডাইনামিক ইউআরএল হ্যান্ডেল করবেন তা জানুন।", 
+                img: "https://oxfaysal.github.io/assets/img/adaptive_deep_linker.png",
+                content: `
+                    <p>Flutter অ্যাপে Deep Linking সেটআপ করা অনেক সময় ডেভেলপারদের জন্য বেশ ঝামেলার হয়ে দাঁড়ায়। বিশেষ করে যখন আপনাকে ম্যানুয়ালি <code>AndroidManifest.xml</code> বা <code>Info.plist</code> এডিট করতে হয় এবং ডাইনামিক ইউআরএল (যেমন: <code>/product/:id</code>) থেকে ডাটা এক্সট্রাক্ট করতে হয়।</p>
+                    
+                    <br>
+                    <h4>🤔 মূল চ্যালেঞ্জটি কোথায়?</h4>
+                    <p>সাধারণত ডিপ লিঙ্কিং সেটআপ করতে গেলে আমাদের অ্যান্ড্রয়েড এবং আইওএস-এর নেটিভ ফাইলে অনেক কোড লিখতে হয়। এছাড়া ইউআরএল থেকে প্যারামিটার আলাদা করার জন্য জটিল Regex বা কাস্টম লজিক ব্যবহার করতে হয়, যা কোডবেসকে অগোছালো করে তোলে।</p>
+                    
+                    <br>
+                    <h4>💡 সমাধান: adaptive_deep_linker</h4>
+                    <p><b>adaptive_deep_linker</b> এই পুরো প্রক্রিয়াটিকে অটোমেটেড এবং সহজ করে দেয়। এটি একটি লাইটওয়েট প্যাকেজ যা আপনার অ্যাপের রাউটিং এবং নেটিভ কনফিগারেশনকে এক জায়গায় নিয়ে আসে।</p>
+                    
+                    <br>
+                    <h4>🌟 কেন এটি ব্যবহার করবেন?</h4>
+                    <ul>
+                        <li>✅ <b>Automated CLI:</b> মাত্র একটি কমান্ডে অ্যান্ড্রয়েড এবং আইওএস-এর জন্য প্রয়োজনীয় নেটিভ সেটআপ সম্পন্ন করে।</li>
+                        <li>✅ <b>Dynamic Path Handling:</b> ইউআরএল থেকে খুব সহজেই প্যারামিটার (যেমন: <code>:id</code>, <code>:slug</code>) এক্সট্রাক্ট করা যায়।</li>
+                        <li>✅ <b>Clean Routing:</b> এটি ফ্লাটারের ডিফল্ট <code>onGenerateRoute</code> এর সাথে চমৎকারভাবে কাজ করে।</li>
+                        <li>✅ <b>Zero Dependencies:</b> কোনো এক্সটার্নাল লাইব্রেরি ছাড়াই এটি তৈরি, ফলে অ্যাপের সাইজ বাড়ে না।</li>
+                    </ul>
+
+                    <br>
+                    <h4>🚀 কীভাবে শুরু করবেন?</h4>
+                    <p>১. আপনার <code>pubspec.yaml</code>-এ প্যাকেজটি যুক্ত করুন:</p>
+                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>dependencies:
+            adaptive_deep_linker: ^0.0.1</code></pre>
+
+                    <p>২. ম্যাজিক কমান্ডটি রান করুন (আপনার ডোমেইন সহ):</p>
+                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>dart run adaptive_deep_linker:setup yourdomain.com</code></pre>
+
+                    <p>৩. আপনার অ্যাপের রাউটিং সেটআপ করুন:</p>
+                    <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>final linker = AdaptiveDeepLinker(
+            routes: [
+                AdaptiveRoute(
+                path: '/product/:id',
+                builder: (params) => ProductDetails(id: params['id']!),
+                ),
+            ],
+            );
+
+            // MaterialApp-এ যুক্ত করুন
+            MaterialApp(
+            onGenerateRoute: linker.handleRoute,
+            );</code></pre>
+
+                    <br>
+                    <div style="margin: 20px 0;">
+                        <a href="https://pub.dev/packages/adaptive_deep_linker" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">View on pub.dev</a>
+                        <a href="https://github.com/oxfaysal/adaptive_deep_linker" target="_blank" style="margin-left: 10px; background: #333; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">GitHub Repository</a>
+                    </div>
+                    
+                    <p>ডেভেলপার হিসেবে আমাদের কাজকে সহজ করাই <b>LoomixDev</b>-এর মূল লক্ষ্য। আপনার অ্যাপে প্যাকেজটি ট্রাই করুন এবং কোনো ফিডব্যাক থাকলে অবশ্যই জানাবেন।</p>
                 `
             }
         ];
