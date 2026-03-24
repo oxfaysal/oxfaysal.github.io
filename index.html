@@ -398,6 +398,91 @@
             onGenerateRoute: linker.handleRoute,
             );</code></pre>
 
+
+                    <br> 
+                    <p>৪. মডেল এবং ডামি ডাটা (Model & Data):</p>
+                    <p>প্রথমে একটি সিম্পল মডেল ডাটা দিয়ে একটি লিস্ট তৈরি করি:</p>
+                    <pre style="background: #1e1e2e; padding: 10px; border-radius: 5px;"><code>
+                        class Product {
+  final int id;
+  final String title;
+  final int price;
+
+  Product({required this.id, required this.title, required this.price});
+}
+
+// ডামি ডাটা লিস্ট
+final List<Product> dummyProducts = [
+  Product(id: 500, title: "Bag", price: 100),
+  Product(id: 501, title: "Watch", price: 250),
+];
+                        </code></pre>
+
+                    <br> 
+                    <p>৫. অ্যাডাপ্টিভ রাউট সেটআপ (The Setup)</p>
+                    <p>আপনার <code>AdaptiveDeepLinker</code>- এর ভেতর রাউটটি এভাবে লিখুন:</p>
+                    <pre style="background: #1e1e2e; padding: 10px; border-radius: 5px;"><code>
+                        final linker = AdaptiveDeepLinker(
+  routes: [
+    AdaptiveRoute(
+      path: '/product/:id', // এখানে :id মানেই হলো আপনার ওই ৫০০
+      builder: (params) {
+        // ইউআরএল থেকে আইডিটি নিন (এটি স্ট্রিং হিসেবে আসবে, তাই ইন্ট করে নিচ্ছি)
+        final productId = int.parse(params['id']!);
+        
+        // লিস্ট থেকে ওই আইডি অনুযায়ী প্রোডাক্টটি খুঁজে বের করুন
+        final product = dummyProducts.firstWhere(
+          (p) => p.id == productId,
+          orElse: () => Product(id: 0, title: "Not Found", price: 0),
+        );
+
+        return ProductPage(product: product);
+      },
+    ),
+  ],
+);
+                        </code></pre>
+
+
+                    <br> 
+                    <p>৬. প্রোডাক্ট পেজ UI (The Screen)</p>
+                    <p>আপনার <code>ProductPage</code> স্ক্রিনটি হবে এরকম:</p>
+                    <pre style="background: #1e1e2e; padding: 10px; border-radius: 5px;"><code>
+                        class ProductPage extends StatelessWidget {
+  final Product product;
+
+  const ProductPage({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(product.title)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.shopping_bag, size: 100, color: Colors.blue),
+            const SizedBox(height: 20),
+            Text(
+              product.title, // এখানে "Bag" দেখাবে
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "Price: \$${product.price}", // এখানে "$100" দেখাবে
+              style: const TextStyle(fontSize: 20, color: Colors.green),
+            ),
+            const SizedBox(height: 10),
+            Text("Product ID: ${product.id}"), // এখানে "500" দেখাবে
+          ],
+        ),
+      ),
+    );
+  }
+}
+                    
+                        </code></pre>
+
+
                     <br>
                     <div style="margin: 20px 0;">
                         <a href="https://pub.dev/packages/adaptive_deep_linker" target="_blank" style="background: #0175C2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold;">View on pub.dev</a>
