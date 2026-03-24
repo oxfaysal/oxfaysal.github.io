@@ -494,22 +494,21 @@ final List<Product> dummyProducts = [
             }
         ];
 
+        // Counter update function
         function updateCounter() {
-                // CountAPI-র একটি অল্টারনেটিভ প্রক্সি ব্যবহার করছি যা বাংলাদেশে খুব ফাস্ট
-                const url = "https://api.counterapi.dev/v1/oxfaysal/visits/up";
+            const url = "https://api.counterapi.dev/v1/oxfaysal/visits/up";
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('visitor-count').innerText = data.count;
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('visitor-count').innerText = "1.5k+";
+                });
+        }
 
-                fetch(url)
-                    .then(res => res.json())
-                    .then(data => {
-                        document.getElementById('visitor-count').innerText = data.count;
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        document.getElementById('visitor-count').innerText = "1.5k+"; // এরর হলে এটি দেখাবে
-                    });
-            };
-
-
+        // Main Render Function
         function render() {
             // Technical Expertise Render
             document.getElementById('skills-list').innerHTML = skillData.map(s => `
