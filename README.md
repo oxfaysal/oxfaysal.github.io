@@ -1,4 +1,4 @@
-# Hi there, I'm Fyisal 👋
+# Hi there, I'm Faysal 👋
 **Flutter Mobile Application Developer | Founder of LoomixDev**
 
 I am a passionate developer from Bangladesh, specializing in creating seamless, high-performance mobile applications. I believe in writing clean code and designing minimalist, user-centric interfaces. Currently, I'm focused on building innovative solutions under my startup, **LoomixDev**.
